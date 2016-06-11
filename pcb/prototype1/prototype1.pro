@@ -1,4 +1,4 @@
-update=Tue 07 Jun 2016 01:07:43 PM PDT
+update=Sat 11 Jun 2016 02:55:06 PM PDT
 version=1
 last_client=kicad
 [pcbnew]
@@ -27,9 +27,9 @@ NetIExt=net
 version=1
 [eeschema]
 version=1
-LibDir=
+LibDir=../lib
 [eeschema/libraries]
-LibName1=prototype1-rescue
+LibName1=spin
 LibName2=power
 LibName3=device
 LibName4=transistors
@@ -59,4 +59,3 @@ LibName27=opto
 LibName28=atmel
 LibName29=contrib
 LibName30=valves
-LibName31=/home/paho/src/spinny/pcb/stm32f410r8-lqfp64

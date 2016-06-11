@@ -1,6 +1,6 @@
 (module LED_CLV1L-PLCC4 (layer F.Cu) (tedit 575730B3)
-  (descr http://www.world-semi.com/uploads/soft/150522/1-150522091P5.pdf)
-  (tags "LED NeoPixel")
+  (descr "3.2 x 2.8 mm common anode rgb led")
+  (tags "RGB LED CA")
   (attr smd)
   (fp_text reference REF** (at 0 -2.54) (layer F.SilkS)
     (effects (font (size 1 1) (thickness 0.15)))
