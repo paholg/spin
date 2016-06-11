@@ -1,0 +1,41 @@
+[package]
+  name = "spinny"
+  version = "0.1.0"
+  authors = ["Paho Lurie-Gregg <paho@paholg.com>"]
+
+# For sim:
+[dependencies]
+  glium = "*"
+  palette = "*"
+  sdl2 = "*"
+
+# For microcontroller:
+
+# [features]
+#    default = ["mcu_lpc11xx"]
+#    mcu_lpc11xx = ["zinc/mcu_lpc11xx"]
+# [dependencies]
+#    rust-libcore = "*"
+
+# [dependencies.zinc]
+#   git = "https://github.com/hackndev/zinc"
+#   branch = "master"
+#   # features = ["mcu_lpc11xx"]
+
+# [dependencies.macro_platformtree]
+#   git = "https://github.com/hackndev/zinc"
+#   branch = "master"
+#   path = "macro_platformtree"
+
+# [dependencies.ioreg]
+#   git = "https://github.com/hackndev/zinc"
+#   branch = "master"
+#   path = "ioreg"
+
+# [dependencies.platformtree]
+#   git = "https://github.com/hackndev/zinc"
+#   branch = "master"
+#   path = "platformtree"
+
+# [dependencies.macro_zinc]
+#   git = "https://github.com/hackndev/zinc"

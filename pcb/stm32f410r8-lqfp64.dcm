@@ -1,0 +1,13 @@
+EESchema-DOCLIB  Version 2.0
+#
+$CMP STM32F410R8-LQFP64
+D STM32F4 ARM chip
+K stm arm microcontroller
+$ENDCMP
+#
+$CMP TPS61021
+D 3-A Boost Converter with 0.5 V input voltage
+K boost converter
+$ENDCMP
+#
+#End Doc Library

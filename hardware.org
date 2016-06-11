@@ -1,0 +1,24 @@
+| Item            | Product   | Quantity | Cost    | Notes                                                                           |
+|-----------------+-----------+----------+---------+---------------------------------------------------------------------------------|
+| Microcontroller | STM32F4   |        1 | $2.00 + | Compatible with Zinc, Cortex M4, need to research specifics                     |
+| Accelerometer   |           |      1-2 |         | MCU comes with one, so maybe use that?                                          |
+| LED             |           |    10-16 | $5.00   | Maybe go smaller. 1mm x 1mm RGB leds exist, could also go 3 monochrome in a row |
+| Microphone      |           |        1 |         | Maybe 2 for better sampling?                                                    |
+| Battery holder  |           |        2 |         | Figure this out - can't compress spring                                         |
+| LED Driver      | TLC5940   |        2 | $2.82   | Might be able to use MCU outputs w/ transistors?                                |
+| Power Switch    |           |        1 |         |                                                                                 |
+| Buttons         |           |       4? |         |                                                                                 |
+| Boost converter | TPS61092? |        1 | $1.00   | Might be unnecessary? Can drive MCU w/ low voltage                              |
+| PCB             |           |        1 | < $2.00 |                                                                                 |
+| Soldering       |           |    ~ 250 | ~ $2.00 |                                                                                 |
+| Handles         |           |        2 | $1.00   |                                                                                 |
+| String          |           |        2 |         |                                                                                 |
+| Box             |           |        1 | < $1.00 |                                                                                 |
+| Packaging       |           |        1 |         |                                                                                 |
+| Storage         |           |     0-1? |         | May want / need extra flash storage                                             |
+| RAM             |           |     0-1? |         | May want / need extra SDRAM                                                     |
+| USB Port        |           |        1 | ~ $1.00 | Ideally USB-C                                                                   |
+| USB Cable       |           |        1 |         | Ideally A to C                                                                  |
+| Crystal         |           |        1 |         |                                                                                 |
+| Flash           |           |          |         | For programs. May need to be NOR.                                               |
+

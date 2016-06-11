@@ -1,0 +1,27 @@
+*** To do
+
+* ARM: [0/5]
+  - [ ] Get Rust project to compile
+  - [ ] Load Rust prog onto chip
+  - [ ] Blink an LED
+  - [ ] Talk to LED driver
+  - [ ] Put ARM on spinny -- Spin to win!
+
+* Accelerometers / Gyros [0/3]
+    - [ ] Get working with ARM
+    - [ ] Display static image!!!
+    - [ ] Advanced motion tracking
+      - [ ] Display bigger image than spinny
+      - [ ] Flappy bird
+      - [ ] Display slices of 3d image
+
+* Microphone [0/3]
+  - [ ] Get working
+  - [ ] Perform FFT
+  - [ ] Music visualizer
+
+* Framework [0/3]
+  - [ ] Figure out how programs will work (Dynamic loading? Rudimentary custom OS? Linux?)
+  - [ ] Present as USB storage (extra flash??)
+  - [ ]
+
