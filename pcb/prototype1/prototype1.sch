@@ -569,7 +569,7 @@ F 3 "" H 8750 3700 50  0000 C CNN
 $EndComp
 Text Notes 6950 5050 0    60   ~ 0
 NOTE: VIAs to ground under TLC5926.\nFor heat. See datasheet.
-Text Notes 6050 6050 0    60   ~ 0
+Text Notes 6050 6750 0    60   ~ 0
 ADD:\nAccelerometers
 Text Notes 6050 7000 0    60   ~ 0
 ADD:\nMicrophone
@@ -1525,4 +1525,6 @@ F 3 "" H 3950 6400 50  0000 C CNN
 	1    0    0    -1  
 $EndComp
 Connection ~ 3950 6400
+Text Notes 6050 6500 0    60   ~ 0
+ADD:\nFlash
 $EndSCHEMATC
