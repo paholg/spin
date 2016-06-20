@@ -2,7 +2,7 @@
 <export version="D">
   <design>
     <source>/home/paho/spin/pcb/prototype1/prototype1.sch</source>
-    <date>Sat 11 Jun 2016 03:21:54 PM PDT</date>
+    <date>Thu 16 Jun 2016 06:56:33 PM PDT</date>
     <tool>Eeschema 4.0.2-stable</tool>
     <sheet number="1" name="/" tstamps="/">
       <title_block>
@@ -21,35 +21,22 @@
   <components>
     <comp ref="C1">
       <value>100n</value>
-      <footprint>Capacitors_SMD:C_0805_HandSoldering</footprint>
+      <footprint>Capacitors_SMD:C_0603_HandSoldering</footprint>
+      <datasheet>http://www.murata.com/products/catalog/pdf/c02e.pdf</datasheet>
+      <fields>
+        <field name="manf#">885012206071</field>
+      </fields>
       <libsource lib="device" part="C"/>
       <sheetpath names="/" tstamps="/"/>
       <tstamp>5755055B</tstamp>
     </comp>
-    <comp ref="C2">
-      <value>100n</value>
-      <footprint>Capacitors_SMD:C_0805_HandSoldering</footprint>
-      <libsource lib="device" part="C"/>
-      <sheetpath names="/" tstamps="/"/>
-      <tstamp>57550614</tstamp>
-    </comp>
-    <comp ref="C3">
-      <value>100n</value>
-      <footprint>Capacitors_SMD:C_0805_HandSoldering</footprint>
-      <libsource lib="device" part="C"/>
-      <sheetpath names="/" tstamps="/"/>
-      <tstamp>57550638</tstamp>
-    </comp>
-    <comp ref="C4">
-      <value>100n</value>
-      <footprint>Capacitors_SMD:C_0805_HandSoldering</footprint>
-      <libsource lib="device" part="C"/>
-      <sheetpath names="/" tstamps="/"/>
-      <tstamp>575507CD</tstamp>
-    </comp>
     <comp ref="C5">
       <value>4.7u</value>
       <footprint>Capacitors_SMD:C_0805_HandSoldering</footprint>
+      <datasheet>http://www.mouser.com/ds/2/427/vjw1bcbascomseries-223529.pdf</datasheet>
+      <fields>
+        <field name="manf#">VJ0805G475KXYTW1BC</field>
+      </fields>
       <libsource lib="device" part="C"/>
       <sheetpath names="/" tstamps="/"/>
       <tstamp>57550933</tstamp>
@@ -57,93 +44,27 @@
     <comp ref="U2">
       <value>TLC5926</value>
       <footprint>Housings_SSOP:SSOP-24_3.9x8.7mm_Pitch0.635mm</footprint>
+      <datasheet>http://www.mouser.com/ds/2/405/tlc5926-447339.pdf</datasheet>
+      <fields>
+        <field name="manf#">TLC5926IPWPR</field>
+      </fields>
       <libsource lib="spin" part="TLC5926"/>
       <sheetpath names="/" tstamps="/"/>
       <tstamp>5755C5DB</tstamp>
     </comp>
-    <comp ref="LED1">
-      <value>RGB</value>
-      <footprint>spin:LED_CLV1L-PLCC4</footprint>
-      <libsource lib="spin" part="RGB"/>
-      <sheetpath names="/" tstamps="/"/>
-      <tstamp>5755CC86</tstamp>
-    </comp>
-    <comp ref="LED2">
-      <value>RGB</value>
-      <footprint>spin:LED_CLV1L-PLCC4</footprint>
-      <libsource lib="spin" part="RGB"/>
-      <sheetpath names="/" tstamps="/"/>
-      <tstamp>5755CD65</tstamp>
-    </comp>
-    <comp ref="LED3">
-      <value>RGB</value>
-      <footprint>spin:LED_CLV1L-PLCC4</footprint>
-      <libsource lib="spin" part="RGB"/>
-      <sheetpath names="/" tstamps="/"/>
-      <tstamp>5755CD9A</tstamp>
-    </comp>
-    <comp ref="LED4">
-      <value>RGB</value>
-      <footprint>spin:LED_CLV1L-PLCC4</footprint>
-      <libsource lib="spin" part="RGB"/>
-      <sheetpath names="/" tstamps="/"/>
-      <tstamp>5755CDCE</tstamp>
-    </comp>
-    <comp ref="LED5">
-      <value>RGB</value>
-      <footprint>spin:LED_CLV1L-PLCC4</footprint>
-      <libsource lib="spin" part="RGB"/>
-      <sheetpath names="/" tstamps="/"/>
-      <tstamp>5755CE05</tstamp>
-    </comp>
-    <comp ref="LED6">
-      <value>RGB</value>
-      <footprint>spin:LED_CLV1L-PLCC4</footprint>
-      <libsource lib="spin" part="RGB"/>
-      <sheetpath names="/" tstamps="/"/>
-      <tstamp>5755CE43</tstamp>
-    </comp>
-    <comp ref="LED7">
-      <value>RGB</value>
-      <footprint>spin:LED_CLV1L-PLCC4</footprint>
-      <libsource lib="spin" part="RGB"/>
-      <sheetpath names="/" tstamps="/"/>
-      <tstamp>5755CE8E</tstamp>
-    </comp>
-    <comp ref="U3">
-      <value>TLC5926</value>
-      <footprint>Housings_SSOP:SSOP-24_3.9x8.7mm_Pitch0.635mm</footprint>
-      <libsource lib="spin" part="TLC5926"/>
-      <sheetpath names="/" tstamps="/"/>
-      <tstamp>57564649</tstamp>
-    </comp>
-    <comp ref="U4">
-      <value>TLC5926</value>
-      <footprint>Housings_SSOP:SSOP-24_3.9x8.7mm_Pitch0.635mm</footprint>
-      <libsource lib="spin" part="TLC5926"/>
-      <sheetpath names="/" tstamps="/"/>
-      <tstamp>57565CAD</tstamp>
-    </comp>
     <comp ref="R3">
       <value>300</value>
-      <footprint>Resistors_SMD:R_0805_HandSoldering</footprint>
+      <footprint>Resistors_ThroughHole:Resistor_Vertical_RM5mm</footprint>
       <libsource lib="device" part="R"/>
       <sheetpath names="/" tstamps="/"/>
       <tstamp>57569C7F</tstamp>
     </comp>
     <comp ref="R4">
       <value>500</value>
-      <footprint>Resistors_SMD:R_0805_HandSoldering</footprint>
+      <footprint>Resistors_ThroughHole:Resistor_Vertical_RM5mm</footprint>
       <libsource lib="device" part="R"/>
       <sheetpath names="/" tstamps="/"/>
       <tstamp>5756A04C</tstamp>
-    </comp>
-    <comp ref="R5">
-      <value>500</value>
-      <footprint>Resistors_SMD:R_0805_HandSoldering</footprint>
-      <libsource lib="device" part="R"/>
-      <sheetpath names="/" tstamps="/"/>
-      <tstamp>5756A2A5</tstamp>
     </comp>
     <comp ref="P1">
       <value>USB_B</value>
@@ -154,317 +75,643 @@
     </comp>
     <comp ref="R1">
       <value>22</value>
-      <footprint>Resistors_SMD:R_0805_HandSoldering</footprint>
+      <footprint>Resistors_SMD:R_0603_HandSoldering</footprint>
+      <datasheet>http://www.mouser.com/ds/2/315/AOA0000C86-911473.pdf</datasheet>
+      <fields>
+        <field name="manf#">ERJ-3EKF22R0V</field>
+      </fields>
       <libsource lib="device" part="R"/>
       <sheetpath names="/" tstamps="/"/>
       <tstamp>575B558D</tstamp>
     </comp>
-    <comp ref="R2">
-      <value>22</value>
-      <footprint>Resistors_SMD:R_0805_HandSoldering</footprint>
-      <libsource lib="device" part="R"/>
-      <sheetpath names="/" tstamps="/"/>
-      <tstamp>575B5606</tstamp>
-    </comp>
     <comp ref="SW1">
-      <value>UP/BOOT</value>
-      <footprint>Buttons_Switches_SMD:SW_SPST_B3U-1000P</footprint>
+      <value>Boot Button</value>
+      <footprint>spin:Button</footprint>
+      <datasheet>http://www.mouser.com/ds/2/418/NG_CD_2-1437565-7_V-663783.pdf</datasheet>
+      <fields>
+        <field name="manf#">2-1437565-8</field>
+      </fields>
       <libsource lib="device" part="SW_PUSH"/>
       <sheetpath names="/" tstamps="/"/>
       <tstamp>575B5F0D</tstamp>
     </comp>
-    <comp ref="LED8">
-      <value>RGB</value>
-      <footprint>spin:LED_CLV1L-PLCC4</footprint>
-      <libsource lib="spin" part="RGB"/>
-      <sheetpath names="/" tstamps="/"/>
-      <tstamp>575B829D</tstamp>
-    </comp>
-    <comp ref="LED9">
-      <value>RGB</value>
-      <footprint>spin:LED_CLV1L-PLCC4</footprint>
-      <libsource lib="spin" part="RGB"/>
-      <sheetpath names="/" tstamps="/"/>
-      <tstamp>575B8337</tstamp>
-    </comp>
-    <comp ref="LED10">
-      <value>RGB</value>
-      <footprint>spin:LED_CLV1L-PLCC4</footprint>
-      <libsource lib="spin" part="RGB"/>
-      <sheetpath names="/" tstamps="/"/>
-      <tstamp>575B83CC</tstamp>
-    </comp>
-    <comp ref="LED11">
-      <value>RGB</value>
-      <footprint>spin:LED_CLV1L-PLCC4</footprint>
-      <libsource lib="spin" part="RGB"/>
-      <sheetpath names="/" tstamps="/"/>
-      <tstamp>575B8470</tstamp>
-    </comp>
-    <comp ref="LED12">
-      <value>RGB</value>
-      <footprint>spin:LED_CLV1L-PLCC4</footprint>
-      <libsource lib="spin" part="RGB"/>
-      <sheetpath names="/" tstamps="/"/>
-      <tstamp>575B8519</tstamp>
-    </comp>
-    <comp ref="LED13">
-      <value>RGB</value>
-      <footprint>spin:LED_CLV1L-PLCC4</footprint>
-      <libsource lib="spin" part="RGB"/>
-      <sheetpath names="/" tstamps="/"/>
-      <tstamp>575B85B3</tstamp>
-    </comp>
-    <comp ref="LED14">
-      <value>RGB</value>
-      <footprint>spin:LED_CLV1L-PLCC4</footprint>
-      <libsource lib="spin" part="RGB"/>
-      <sheetpath names="/" tstamps="/"/>
-      <tstamp>575B8654</tstamp>
-    </comp>
-    <comp ref="LED15">
-      <value>RGB</value>
-      <footprint>spin:LED_CLV1L-PLCC4</footprint>
-      <libsource lib="spin" part="RGB"/>
-      <sheetpath names="/" tstamps="/"/>
-      <tstamp>575B86FC</tstamp>
-    </comp>
-    <comp ref="LED16">
-      <value>RGB</value>
-      <footprint>spin:LED_CLV1L-PLCC4</footprint>
-      <libsource lib="spin" part="RGB"/>
-      <sheetpath names="/" tstamps="/"/>
-      <tstamp>575B87A7</tstamp>
-    </comp>
-    <comp ref="LED17">
-      <value>RGB</value>
-      <footprint>spin:LED_CLV1L-PLCC4</footprint>
-      <libsource lib="spin" part="RGB"/>
-      <sheetpath names="/" tstamps="/"/>
-      <tstamp>575B8F75</tstamp>
-    </comp>
-    <comp ref="LED18">
-      <value>RGB</value>
-      <footprint>spin:LED_CLV1L-PLCC4</footprint>
-      <libsource lib="spin" part="RGB"/>
-      <sheetpath names="/" tstamps="/"/>
-      <tstamp>575B8F7B</tstamp>
-    </comp>
-    <comp ref="LED19">
-      <value>RGB</value>
-      <footprint>spin:LED_CLV1L-PLCC4</footprint>
-      <libsource lib="spin" part="RGB"/>
-      <sheetpath names="/" tstamps="/"/>
-      <tstamp>575B8F81</tstamp>
-    </comp>
-    <comp ref="LED20">
-      <value>RGB</value>
-      <footprint>spin:LED_CLV1L-PLCC4</footprint>
-      <libsource lib="spin" part="RGB"/>
-      <sheetpath names="/" tstamps="/"/>
-      <tstamp>575B8F87</tstamp>
-    </comp>
-    <comp ref="LED21">
-      <value>RGB</value>
-      <footprint>spin:LED_CLV1L-PLCC4</footprint>
-      <libsource lib="spin" part="RGB"/>
-      <sheetpath names="/" tstamps="/"/>
-      <tstamp>575B8F8D</tstamp>
-    </comp>
-    <comp ref="LED22">
-      <value>RGB</value>
-      <footprint>spin:LED_CLV1L-PLCC4</footprint>
-      <libsource lib="spin" part="RGB"/>
-      <sheetpath names="/" tstamps="/"/>
-      <tstamp>575B8F93</tstamp>
-    </comp>
-    <comp ref="LED23">
-      <value>RGB</value>
-      <footprint>spin:LED_CLV1L-PLCC4</footprint>
-      <libsource lib="spin" part="RGB"/>
-      <sheetpath names="/" tstamps="/"/>
-      <tstamp>575B8F99</tstamp>
-    </comp>
-    <comp ref="LED24">
-      <value>RGB</value>
-      <footprint>spin:LED_CLV1L-PLCC4</footprint>
-      <libsource lib="spin" part="RGB"/>
-      <sheetpath names="/" tstamps="/"/>
-      <tstamp>575B8FDF</tstamp>
-    </comp>
-    <comp ref="LED25">
-      <value>RGB</value>
-      <footprint>spin:LED_CLV1L-PLCC4</footprint>
-      <libsource lib="spin" part="RGB"/>
-      <sheetpath names="/" tstamps="/"/>
-      <tstamp>575B8FE5</tstamp>
-    </comp>
-    <comp ref="LED26">
-      <value>RGB</value>
-      <footprint>spin:LED_CLV1L-PLCC4</footprint>
-      <libsource lib="spin" part="RGB"/>
-      <sheetpath names="/" tstamps="/"/>
-      <tstamp>575B8FEB</tstamp>
-    </comp>
-    <comp ref="LED27">
-      <value>RGB</value>
-      <footprint>spin:LED_CLV1L-PLCC4</footprint>
-      <libsource lib="spin" part="RGB"/>
-      <sheetpath names="/" tstamps="/"/>
-      <tstamp>575B8FF1</tstamp>
-    </comp>
-    <comp ref="LED28">
-      <value>RGB</value>
-      <footprint>spin:LED_CLV1L-PLCC4</footprint>
-      <libsource lib="spin" part="RGB"/>
-      <sheetpath names="/" tstamps="/"/>
-      <tstamp>575B8FF7</tstamp>
-    </comp>
-    <comp ref="LED29">
-      <value>RGB</value>
-      <footprint>spin:LED_CLV1L-PLCC4</footprint>
-      <libsource lib="spin" part="RGB"/>
-      <sheetpath names="/" tstamps="/"/>
-      <tstamp>575B8FFD</tstamp>
-    </comp>
-    <comp ref="LED30">
-      <value>RGB</value>
-      <footprint>spin:LED_CLV1L-PLCC4</footprint>
-      <libsource lib="spin" part="RGB"/>
-      <sheetpath names="/" tstamps="/"/>
-      <tstamp>575B9003</tstamp>
-    </comp>
-    <comp ref="LED31">
-      <value>RGB</value>
-      <footprint>spin:LED_CLV1L-PLCC4</footprint>
-      <libsource lib="spin" part="RGB"/>
-      <sheetpath names="/" tstamps="/"/>
-      <tstamp>575B9009</tstamp>
-    </comp>
-    <comp ref="LED32">
-      <value>RGB</value>
-      <footprint>spin:LED_CLV1L-PLCC4</footprint>
-      <libsource lib="spin" part="RGB"/>
-      <sheetpath names="/" tstamps="/"/>
-      <tstamp>575B900F</tstamp>
-    </comp>
-    <comp ref="U1">
-      <value>STM32F410R8-LQFP64</value>
-      <footprint>Housings_QFP:TQFP-64_10x10mm_Pitch0.5mm</footprint>
-      <libsource lib="spin" part="STM32F410R8-LQFP64"/>
-      <sheetpath names="/" tstamps="/"/>
-      <tstamp>575503AA</tstamp>
-    </comp>
     <comp ref="U5">
       <value>LM1117-3.3</value>
+      <footprint>TO_SOT_Packages_SMD:SOT-223</footprint>
       <libsource lib="regul" part="LM1117-3.3"/>
       <sheetpath names="/" tstamps="/"/>
       <tstamp>575BD992</tstamp>
     </comp>
     <comp ref="SW5">
       <value>SPST</value>
+      <datasheet>http://www.mouser.com/ds/2/60/-604428.pdf</datasheet>
+      <fields>
+        <field name="manf#">OS102011MA1QN1C</field>
+      </fields>
       <libsource lib="device" part="SPST"/>
       <sheetpath names="/" tstamps="/"/>
       <tstamp>575BE9CB</tstamp>
     </comp>
-    <comp ref="SW2">
-      <value>LEFT</value>
-      <footprint>Buttons_Switches_SMD:SW_SPST_B3U-1000P</footprint>
-      <libsource lib="device" part="SW_PUSH"/>
-      <sheetpath names="/" tstamps="/"/>
-      <tstamp>575BFF14</tstamp>
-    </comp>
-    <comp ref="SW3">
-      <value>RIGHT</value>
-      <footprint>Buttons_Switches_SMD:SW_SPST_B3U-1000P</footprint>
-      <libsource lib="device" part="SW_PUSH"/>
-      <sheetpath names="/" tstamps="/"/>
-      <tstamp>575C013D</tstamp>
-    </comp>
-    <comp ref="SW4">
-      <value>DOWN</value>
-      <footprint>Buttons_Switches_SMD:SW_SPST_B3U-1000P</footprint>
-      <libsource lib="device" part="SW_PUSH"/>
-      <sheetpath names="/" tstamps="/"/>
-      <tstamp>575C01FB</tstamp>
-    </comp>
     <comp ref="P2">
       <value>AAA1 HOT</value>
+      <footprint>Socket_Strips:Socket_Strip_Straight_1x01</footprint>
       <libsource lib="conn" part="CONN_01X01"/>
       <sheetpath names="/" tstamps="/"/>
       <tstamp>575C5FB9</tstamp>
     </comp>
     <comp ref="P3">
       <value>AAA1 GND</value>
+      <footprint>Socket_Strips:Socket_Strip_Straight_1x01</footprint>
       <libsource lib="conn" part="CONN_01X01"/>
       <sheetpath names="/" tstamps="/"/>
       <tstamp>575C62CF</tstamp>
     </comp>
     <comp ref="P4">
       <value>AAA2 GND</value>
+      <footprint>Socket_Strips:Socket_Strip_Straight_1x01</footprint>
       <libsource lib="conn" part="CONN_01X01"/>
       <sheetpath names="/" tstamps="/"/>
       <tstamp>575C63D4</tstamp>
     </comp>
     <comp ref="P5">
       <value>AAA2 HOT</value>
+      <footprint>Socket_Strips:Socket_Strip_Straight_1x01</footprint>
       <libsource lib="conn" part="CONN_01X01"/>
       <sheetpath names="/" tstamps="/"/>
       <tstamp>575C64F9</tstamp>
     </comp>
-    <comp ref="U6">
-      <value>TPS61021</value>
-      <libsource lib="spin" part="TPS61021"/>
-      <sheetpath names="/" tstamps="/"/>
-      <tstamp>575D9826</tstamp>
-    </comp>
     <comp ref="L1">
       <value>1uH 4.9mOhm</value>
+      <footprint>spin:SRU1028-10x10-Octogon</footprint>
+      <datasheet>http://www.mouser.com/ds/2/54/RU1028-778233.pdf</datasheet>
+      <fields>
+        <field name="manf#">SRU1028-1R0Y</field>
+      </fields>
       <libsource lib="device" part="INDUCTOR"/>
       <sheetpath names="/" tstamps="/"/>
       <tstamp>575D9F93</tstamp>
     </comp>
     <comp ref="C10">
       <value>10u</value>
+      <footprint>Capacitors_SMD:C_0603_HandSoldering</footprint>
       <libsource lib="device" part="C"/>
       <sheetpath names="/" tstamps="/"/>
       <tstamp>575DB04A</tstamp>
     </comp>
     <comp ref="C9">
       <value>10u</value>
+      <footprint>Capacitors_SMD:C_0603_HandSoldering</footprint>
       <libsource lib="device" part="C"/>
       <sheetpath names="/" tstamps="/"/>
       <tstamp>575DC29B</tstamp>
     </comp>
     <comp ref="C8">
       <value>10u</value>
+      <footprint>Capacitors_SMD:C_0603_HandSoldering</footprint>
       <libsource lib="device" part="C"/>
       <sheetpath names="/" tstamps="/"/>
       <tstamp>575DC373</tstamp>
     </comp>
     <comp ref="R7">
       <value>100k</value>
+      <footprint>Resistors_SMD:R_0603_HandSoldering</footprint>
       <libsource lib="device" part="R"/>
       <sheetpath names="/" tstamps="/"/>
       <tstamp>575DD26E</tstamp>
     </comp>
     <comp ref="R6">
       <value>316k</value>
+      <footprint>Resistors_SMD:R_0603_HandSoldering</footprint>
       <libsource lib="device" part="R"/>
       <sheetpath names="/" tstamps="/"/>
       <tstamp>575DEBFC</tstamp>
     </comp>
     <comp ref="C6">
       <value>24p</value>
+      <footprint>Capacitors_SMD:C_0603_HandSoldering</footprint>
       <libsource lib="device" part="C"/>
       <sheetpath names="/" tstamps="/"/>
       <tstamp>575E246D</tstamp>
     </comp>
     <comp ref="C7">
       <value>10u</value>
+      <footprint>Capacitors_SMD:C_0603_HandSoldering</footprint>
       <libsource lib="device" part="C"/>
       <sheetpath names="/" tstamps="/"/>
       <tstamp>575E7B9E</tstamp>
+    </comp>
+    <comp ref="U3">
+      <value>TLC5926</value>
+      <footprint>Housings_SSOP:SSOP-24_3.9x8.7mm_Pitch0.635mm</footprint>
+      <datasheet>http://www.mouser.com/ds/2/405/tlc5926-447339.pdf</datasheet>
+      <fields>
+        <field name="manf#">TLC5926IPWPR</field>
+      </fields>
+      <libsource lib="spin" part="TLC5926"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>57606EAD</tstamp>
+    </comp>
+    <comp ref="U4">
+      <value>TLC5926</value>
+      <footprint>Housings_SSOP:SSOP-24_3.9x8.7mm_Pitch0.635mm</footprint>
+      <datasheet>http://www.mouser.com/ds/2/405/tlc5926-447339.pdf</datasheet>
+      <fields>
+        <field name="manf#">TLC5926IPWPR</field>
+      </fields>
+      <libsource lib="spin" part="TLC5926"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>57606FE4</tstamp>
+    </comp>
+    <comp ref="U1">
+      <value>STM32F410R8/B</value>
+      <footprint>Housings_QFP:TQFP-64_10x10mm_Pitch0.5mm</footprint>
+      <datasheet>http://www.st.com/web/en/resource/technical/document/datasheet/DM00214043.pdf</datasheet>
+      <fields>
+        <field name="manf#">STM32F410RBT6</field>
+      </fields>
+      <libsource lib="spin" part="STM32F410R8/B"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>57606824</tstamp>
+    </comp>
+    <comp ref="LED1">
+      <value>RGB</value>
+      <footprint>spin:LED_CLV1L-PLCC4</footprint>
+      <datasheet>http://www.mouser.com/ds/2/90/CLV1L%20FKB%201238-218261.pdf</datasheet>
+      <fields>
+        <field name="manf#">CLV1L-FKB-CHMMQDGBB7673673</field>
+      </fields>
+      <libsource lib="spin" part="RGB"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>57609324</tstamp>
+    </comp>
+    <comp ref="LED2">
+      <value>RGB</value>
+      <footprint>spin:LED_CLV1L-PLCC4</footprint>
+      <datasheet>http://www.mouser.com/ds/2/90/CLV1L%20FKB%201238-218261.pdf</datasheet>
+      <fields>
+        <field name="manf#">CLV1L-FKB-CHMMQDGBB7673673</field>
+      </fields>
+      <libsource lib="spin" part="RGB"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>576094AD</tstamp>
+    </comp>
+    <comp ref="LED3">
+      <value>RGB</value>
+      <footprint>spin:LED_CLV1L-PLCC4</footprint>
+      <datasheet>http://www.mouser.com/ds/2/90/CLV1L%20FKB%201238-218261.pdf</datasheet>
+      <fields>
+        <field name="manf#">CLV1L-FKB-CHMMQDGBB7673673</field>
+      </fields>
+      <libsource lib="spin" part="RGB"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>57609535</tstamp>
+    </comp>
+    <comp ref="LED4">
+      <value>RGB</value>
+      <footprint>spin:LED_CLV1L-PLCC4</footprint>
+      <datasheet>http://www.mouser.com/ds/2/90/CLV1L%20FKB%201238-218261.pdf</datasheet>
+      <fields>
+        <field name="manf#">CLV1L-FKB-CHMMQDGBB7673673</field>
+      </fields>
+      <libsource lib="spin" part="RGB"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>576095C4</tstamp>
+    </comp>
+    <comp ref="LED5">
+      <value>RGB</value>
+      <footprint>spin:LED_CLV1L-PLCC4</footprint>
+      <datasheet>http://www.mouser.com/ds/2/90/CLV1L%20FKB%201238-218261.pdf</datasheet>
+      <fields>
+        <field name="manf#">CLV1L-FKB-CHMMQDGBB7673673</field>
+      </fields>
+      <libsource lib="spin" part="RGB"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>57609D4C</tstamp>
+    </comp>
+    <comp ref="LED6">
+      <value>RGB</value>
+      <footprint>spin:LED_CLV1L-PLCC4</footprint>
+      <datasheet>http://www.mouser.com/ds/2/90/CLV1L%20FKB%201238-218261.pdf</datasheet>
+      <fields>
+        <field name="manf#">CLV1L-FKB-CHMMQDGBB7673673</field>
+      </fields>
+      <libsource lib="spin" part="RGB"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>57609D53</tstamp>
+    </comp>
+    <comp ref="LED7">
+      <value>RGB</value>
+      <footprint>spin:LED_CLV1L-PLCC4</footprint>
+      <datasheet>http://www.mouser.com/ds/2/90/CLV1L%20FKB%201238-218261.pdf</datasheet>
+      <fields>
+        <field name="manf#">CLV1L-FKB-CHMMQDGBB7673673</field>
+      </fields>
+      <libsource lib="spin" part="RGB"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>57609D5A</tstamp>
+    </comp>
+    <comp ref="LED8">
+      <value>RGB</value>
+      <footprint>spin:LED_CLV1L-PLCC4</footprint>
+      <datasheet>http://www.mouser.com/ds/2/90/CLV1L%20FKB%201238-218261.pdf</datasheet>
+      <fields>
+        <field name="manf#">CLV1L-FKB-CHMMQDGBB7673673</field>
+      </fields>
+      <libsource lib="spin" part="RGB"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>57609D61</tstamp>
+    </comp>
+    <comp ref="LED9">
+      <value>RGB</value>
+      <footprint>spin:LED_CLV1L-PLCC4</footprint>
+      <datasheet>http://www.mouser.com/ds/2/90/CLV1L%20FKB%201238-218261.pdf</datasheet>
+      <fields>
+        <field name="manf#">CLV1L-FKB-CHMMQDGBB7673673</field>
+      </fields>
+      <libsource lib="spin" part="RGB"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>5760A50C</tstamp>
+    </comp>
+    <comp ref="LED10">
+      <value>RGB</value>
+      <footprint>spin:LED_CLV1L-PLCC4</footprint>
+      <datasheet>http://www.mouser.com/ds/2/90/CLV1L%20FKB%201238-218261.pdf</datasheet>
+      <fields>
+        <field name="manf#">CLV1L-FKB-CHMMQDGBB7673673</field>
+      </fields>
+      <libsource lib="spin" part="RGB"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>5760A513</tstamp>
+    </comp>
+    <comp ref="LED11">
+      <value>RGB</value>
+      <footprint>spin:LED_CLV1L-PLCC4</footprint>
+      <datasheet>http://www.mouser.com/ds/2/90/CLV1L%20FKB%201238-218261.pdf</datasheet>
+      <fields>
+        <field name="manf#">CLV1L-FKB-CHMMQDGBB7673673</field>
+      </fields>
+      <libsource lib="spin" part="RGB"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>5760A51A</tstamp>
+    </comp>
+    <comp ref="LED12">
+      <value>RGB</value>
+      <footprint>spin:LED_CLV1L-PLCC4</footprint>
+      <datasheet>http://www.mouser.com/ds/2/90/CLV1L%20FKB%201238-218261.pdf</datasheet>
+      <fields>
+        <field name="manf#">CLV1L-FKB-CHMMQDGBB7673673</field>
+      </fields>
+      <libsource lib="spin" part="RGB"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>5760A521</tstamp>
+    </comp>
+    <comp ref="LED13">
+      <value>RGB</value>
+      <footprint>spin:LED_CLV1L-PLCC4</footprint>
+      <datasheet>http://www.mouser.com/ds/2/90/CLV1L%20FKB%201238-218261.pdf</datasheet>
+      <fields>
+        <field name="manf#">CLV1L-FKB-CHMMQDGBB7673673</field>
+      </fields>
+      <libsource lib="spin" part="RGB"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>5760A528</tstamp>
+    </comp>
+    <comp ref="LED14">
+      <value>RGB</value>
+      <footprint>spin:LED_CLV1L-PLCC4</footprint>
+      <datasheet>http://www.mouser.com/ds/2/90/CLV1L%20FKB%201238-218261.pdf</datasheet>
+      <fields>
+        <field name="manf#">CLV1L-FKB-CHMMQDGBB7673673</field>
+      </fields>
+      <libsource lib="spin" part="RGB"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>5760A52F</tstamp>
+    </comp>
+    <comp ref="LED15">
+      <value>RGB</value>
+      <footprint>spin:LED_CLV1L-PLCC4</footprint>
+      <datasheet>http://www.mouser.com/ds/2/90/CLV1L%20FKB%201238-218261.pdf</datasheet>
+      <fields>
+        <field name="manf#">CLV1L-FKB-CHMMQDGBB7673673</field>
+      </fields>
+      <libsource lib="spin" part="RGB"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>5760A536</tstamp>
+    </comp>
+    <comp ref="LED16">
+      <value>RGB</value>
+      <footprint>spin:LED_CLV1L-PLCC4</footprint>
+      <datasheet>http://www.mouser.com/ds/2/90/CLV1L%20FKB%201238-218261.pdf</datasheet>
+      <fields>
+        <field name="manf#">CLV1L-FKB-CHMMQDGBB7673673</field>
+      </fields>
+      <libsource lib="spin" part="RGB"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>5760A53D</tstamp>
+    </comp>
+    <comp ref="LED17">
+      <value>RGB</value>
+      <footprint>spin:LED_CLV1L-PLCC4</footprint>
+      <datasheet>http://www.mouser.com/ds/2/90/CLV1L%20FKB%201238-218261.pdf</datasheet>
+      <fields>
+        <field name="manf#">CLV1L-FKB-CHMMQDGBB7673673</field>
+      </fields>
+      <libsource lib="spin" part="RGB"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>5760AAC2</tstamp>
+    </comp>
+    <comp ref="LED18">
+      <value>RGB</value>
+      <footprint>spin:LED_CLV1L-PLCC4</footprint>
+      <datasheet>http://www.mouser.com/ds/2/90/CLV1L%20FKB%201238-218261.pdf</datasheet>
+      <fields>
+        <field name="manf#">CLV1L-FKB-CHMMQDGBB7673673</field>
+      </fields>
+      <libsource lib="spin" part="RGB"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>5760AAC9</tstamp>
+    </comp>
+    <comp ref="LED19">
+      <value>RGB</value>
+      <footprint>spin:LED_CLV1L-PLCC4</footprint>
+      <datasheet>http://www.mouser.com/ds/2/90/CLV1L%20FKB%201238-218261.pdf</datasheet>
+      <fields>
+        <field name="manf#">CLV1L-FKB-CHMMQDGBB7673673</field>
+      </fields>
+      <libsource lib="spin" part="RGB"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>5760AAD0</tstamp>
+    </comp>
+    <comp ref="LED20">
+      <value>RGB</value>
+      <footprint>spin:LED_CLV1L-PLCC4</footprint>
+      <datasheet>http://www.mouser.com/ds/2/90/CLV1L%20FKB%201238-218261.pdf</datasheet>
+      <fields>
+        <field name="manf#">CLV1L-FKB-CHMMQDGBB7673673</field>
+      </fields>
+      <libsource lib="spin" part="RGB"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>5760AAD7</tstamp>
+    </comp>
+    <comp ref="LED21">
+      <value>RGB</value>
+      <footprint>spin:LED_CLV1L-PLCC4</footprint>
+      <datasheet>http://www.mouser.com/ds/2/90/CLV1L%20FKB%201238-218261.pdf</datasheet>
+      <fields>
+        <field name="manf#">CLV1L-FKB-CHMMQDGBB7673673</field>
+      </fields>
+      <libsource lib="spin" part="RGB"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>5760AADE</tstamp>
+    </comp>
+    <comp ref="LED22">
+      <value>RGB</value>
+      <footprint>spin:LED_CLV1L-PLCC4</footprint>
+      <datasheet>http://www.mouser.com/ds/2/90/CLV1L%20FKB%201238-218261.pdf</datasheet>
+      <fields>
+        <field name="manf#">CLV1L-FKB-CHMMQDGBB7673673</field>
+      </fields>
+      <libsource lib="spin" part="RGB"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>5760AAE5</tstamp>
+    </comp>
+    <comp ref="LED23">
+      <value>RGB</value>
+      <footprint>spin:LED_CLV1L-PLCC4</footprint>
+      <datasheet>http://www.mouser.com/ds/2/90/CLV1L%20FKB%201238-218261.pdf</datasheet>
+      <fields>
+        <field name="manf#">CLV1L-FKB-CHMMQDGBB7673673</field>
+      </fields>
+      <libsource lib="spin" part="RGB"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>5760AAEC</tstamp>
+    </comp>
+    <comp ref="LED24">
+      <value>RGB</value>
+      <footprint>spin:LED_CLV1L-PLCC4</footprint>
+      <datasheet>http://www.mouser.com/ds/2/90/CLV1L%20FKB%201238-218261.pdf</datasheet>
+      <fields>
+        <field name="manf#">CLV1L-FKB-CHMMQDGBB7673673</field>
+      </fields>
+      <libsource lib="spin" part="RGB"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>5760AAF3</tstamp>
+    </comp>
+    <comp ref="LED25">
+      <value>RGB</value>
+      <footprint>spin:LED_CLV1L-PLCC4</footprint>
+      <datasheet>http://www.mouser.com/ds/2/90/CLV1L%20FKB%201238-218261.pdf</datasheet>
+      <fields>
+        <field name="manf#">CLV1L-FKB-CHMMQDGBB7673673</field>
+      </fields>
+      <libsource lib="spin" part="RGB"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>5760AAFA</tstamp>
+    </comp>
+    <comp ref="LED26">
+      <value>RGB</value>
+      <footprint>spin:LED_CLV1L-PLCC4</footprint>
+      <datasheet>http://www.mouser.com/ds/2/90/CLV1L%20FKB%201238-218261.pdf</datasheet>
+      <fields>
+        <field name="manf#">CLV1L-FKB-CHMMQDGBB7673673</field>
+      </fields>
+      <libsource lib="spin" part="RGB"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>5760AB01</tstamp>
+    </comp>
+    <comp ref="LED27">
+      <value>RGB</value>
+      <footprint>spin:LED_CLV1L-PLCC4</footprint>
+      <datasheet>http://www.mouser.com/ds/2/90/CLV1L%20FKB%201238-218261.pdf</datasheet>
+      <fields>
+        <field name="manf#">CLV1L-FKB-CHMMQDGBB7673673</field>
+      </fields>
+      <libsource lib="spin" part="RGB"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>5760AB08</tstamp>
+    </comp>
+    <comp ref="LED28">
+      <value>RGB</value>
+      <footprint>spin:LED_CLV1L-PLCC4</footprint>
+      <datasheet>http://www.mouser.com/ds/2/90/CLV1L%20FKB%201238-218261.pdf</datasheet>
+      <fields>
+        <field name="manf#">CLV1L-FKB-CHMMQDGBB7673673</field>
+      </fields>
+      <libsource lib="spin" part="RGB"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>5760AB0F</tstamp>
+    </comp>
+    <comp ref="LED29">
+      <value>RGB</value>
+      <footprint>spin:LED_CLV1L-PLCC4</footprint>
+      <datasheet>http://www.mouser.com/ds/2/90/CLV1L%20FKB%201238-218261.pdf</datasheet>
+      <fields>
+        <field name="manf#">CLV1L-FKB-CHMMQDGBB7673673</field>
+      </fields>
+      <libsource lib="spin" part="RGB"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>5760AB16</tstamp>
+    </comp>
+    <comp ref="LED30">
+      <value>RGB</value>
+      <footprint>spin:LED_CLV1L-PLCC4</footprint>
+      <datasheet>http://www.mouser.com/ds/2/90/CLV1L%20FKB%201238-218261.pdf</datasheet>
+      <fields>
+        <field name="manf#">CLV1L-FKB-CHMMQDGBB7673673</field>
+      </fields>
+      <libsource lib="spin" part="RGB"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>5760AB1D</tstamp>
+    </comp>
+    <comp ref="LED31">
+      <value>RGB</value>
+      <footprint>spin:LED_CLV1L-PLCC4</footprint>
+      <datasheet>http://www.mouser.com/ds/2/90/CLV1L%20FKB%201238-218261.pdf</datasheet>
+      <fields>
+        <field name="manf#">CLV1L-FKB-CHMMQDGBB7673673</field>
+      </fields>
+      <libsource lib="spin" part="RGB"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>5760AB24</tstamp>
+    </comp>
+    <comp ref="LED32">
+      <value>RGB</value>
+      <footprint>spin:LED_CLV1L-PLCC4</footprint>
+      <datasheet>http://www.mouser.com/ds/2/90/CLV1L%20FKB%201238-218261.pdf</datasheet>
+      <fields>
+        <field name="manf#">CLV1L-FKB-CHMMQDGBB7673673</field>
+      </fields>
+      <libsource lib="spin" part="RGB"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>5760AB2B</tstamp>
+    </comp>
+    <comp ref="U6">
+      <value>TPS61021</value>
+      <footprint>spin:WSON-8_2x2mm</footprint>
+      <datasheet>http://www.mouser.com/ds/2/405/tps61021-922962.pdf</datasheet>
+      <fields>
+        <field name="manf#">TPS61021DSGT</field>
+      </fields>
+      <libsource lib="spin" part="TPS61021"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>5760DD6F</tstamp>
+    </comp>
+    <comp ref="C2">
+      <value>100n</value>
+      <footprint>Capacitors_SMD:C_0603_HandSoldering</footprint>
+      <datasheet>http://www.murata.com/products/catalog/pdf/c02e.pdf</datasheet>
+      <fields>
+        <field name="manf#">885012206071</field>
+      </fields>
+      <libsource lib="device" part="C"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>57613E3D</tstamp>
+    </comp>
+    <comp ref="C3">
+      <value>100n</value>
+      <footprint>Capacitors_SMD:C_0603_HandSoldering</footprint>
+      <datasheet>http://www.murata.com/products/catalog/pdf/c02e.pdf</datasheet>
+      <fields>
+        <field name="manf#">885012206071</field>
+      </fields>
+      <libsource lib="device" part="C"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>57613F2B</tstamp>
+    </comp>
+    <comp ref="C4">
+      <value>100n</value>
+      <footprint>Capacitors_SMD:C_0603_HandSoldering</footprint>
+      <datasheet>http://www.murata.com/products/catalog/pdf/c02e.pdf</datasheet>
+      <fields>
+        <field name="manf#">885012206071</field>
+      </fields>
+      <libsource lib="device" part="C"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>57614010</tstamp>
+    </comp>
+    <comp ref="R2">
+      <value>22</value>
+      <footprint>Resistors_SMD:R_0603_HandSoldering</footprint>
+      <datasheet>http://www.mouser.com/ds/2/315/AOA0000C86-911473.pdf</datasheet>
+      <fields>
+        <field name="manf#">ERJ-3EKF22R0V</field>
+      </fields>
+      <libsource lib="device" part="R"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>57615BAB</tstamp>
+    </comp>
+    <comp ref="R5">
+      <value>500</value>
+      <footprint>Resistors_ThroughHole:Resistor_Vertical_RM5mm</footprint>
+      <libsource lib="device" part="R"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>57619DE1</tstamp>
+    </comp>
+    <comp ref="SW2">
+      <value>Button</value>
+      <footprint>spin:Button</footprint>
+      <datasheet>http://www.mouser.com/ds/2/418/NG_CD_2-1437565-7_V-663783.pdf</datasheet>
+      <fields>
+        <field name="manf#">2-1437565-8</field>
+      </fields>
+      <libsource lib="device" part="SW_PUSH"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>5761C79E</tstamp>
+    </comp>
+    <comp ref="SW3">
+      <value>Button</value>
+      <footprint>spin:Button</footprint>
+      <datasheet>http://www.mouser.com/ds/2/418/NG_CD_2-1437565-7_V-663783.pdf</datasheet>
+      <fields>
+        <field name="manf#">2-1437565-8</field>
+      </fields>
+      <libsource lib="device" part="SW_PUSH"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>5761C890</tstamp>
+    </comp>
+    <comp ref="SW4">
+      <value>Button</value>
+      <footprint>spin:Button</footprint>
+      <datasheet>http://www.mouser.com/ds/2/418/NG_CD_2-1437565-7_V-663783.pdf</datasheet>
+      <fields>
+        <field name="manf#">2-1437565-8</field>
+      </fields>
+      <libsource lib="device" part="SW_PUSH"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>5761C96F</tstamp>
+    </comp>
+    <comp ref="U7">
+      <value>L3GD20HTR</value>
+      <footprint>spin:L3GD20H</footprint>
+      <datasheet>http://www.mouser.com/ds/2/389/DM00060659-490661.pdf</datasheet>
+      <fields>
+        <field name="manf#">L3GD20HTR</field>
+      </fields>
+      <libsource lib="spin" part="L3GD20HTR"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>57638BB5</tstamp>
+    </comp>
+    <comp ref="U8">
+      <value>LIS331HH</value>
+      <footprint>spin:LGA16</footprint>
+      <datasheet>http://www.mouser.com/ds/2/389/CD00250937-250433.pdf</datasheet>
+      <fields>
+        <field name="manf#">LIS331HH</field>
+      </fields>
+      <libsource lib="spin" part="LIS331HH"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>57635DF6</tstamp>
+    </comp>
+    <comp ref="U9">
+      <value>LIS331HH</value>
+      <footprint>spin:LGA16</footprint>
+      <datasheet>http://www.mouser.com/ds/2/389/CD00250937-250433.pdf</datasheet>
+      <fields>
+        <field name="manf#">LIS331HH</field>
+      </fields>
+      <libsource lib="spin" part="LIS331HH"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>5763BAF4</tstamp>
     </comp>
   </components>
   <libparts>
@@ -516,6 +763,62 @@
         <pin num="2" name="2" type="passive"/>
       </pins>
     </libpart>
+    <libpart lib="spin" part="L3GD20HTR">
+      <description>3 axis gyroscope, +/- 245 dps, +/- 500 dps, +/- 2000 dps</description>
+      <fields>
+        <field name="Reference">U</field>
+        <field name="Value">L3GD20HTR</field>
+        <field name="Footprint">spin:LGA16</field>
+        <field name="Datasheet">http://www.mouser.com/ds/2/389/DM00060659-490661.pdf</field>
+        <field name="manf#">L3GD20HTR</field>
+      </fields>
+      <pins>
+        <pin num="1" name="Vdd_IO" type="power_in"/>
+        <pin num="2" name="CLK" type="input"/>
+        <pin num="3" name="SDI" type="input"/>
+        <pin num="4" name="SDO" type="input"/>
+        <pin num="5" name="CS" type="input"/>
+        <pin num="6" name="DRDY/INT2" type="input"/>
+        <pin num="7" name="INT1" type="input"/>
+        <pin num="8" name="DEN" type="input"/>
+        <pin num="9" name="GND" type="input"/>
+        <pin num="10" name="GND" type="input"/>
+        <pin num="11" name="GND" type="input"/>
+        <pin num="12" name="GND" type="input"/>
+        <pin num="13" name="GND" type="input"/>
+        <pin num="14" name="Cap" type="input"/>
+        <pin num="15" name="GND" type="input"/>
+        <pin num="16" name="Vdd" type="power_in"/>
+      </pins>
+    </libpart>
+    <libpart lib="spin" part="LIS331HH">
+      <description>3-axis accelerometer, 6g, 12g, 24g</description>
+      <fields>
+        <field name="Reference">U</field>
+        <field name="Value">LIS331HH</field>
+        <field name="Footprint">spin:LGA16</field>
+        <field name="Datasheet">http://www.mouser.com/ds/2/389/CD00250937-250433.pdf</field>
+        <field name="manf#">LIS331HH</field>
+      </fields>
+      <pins>
+        <pin num="1" name="Vdd_IO" type="power_in"/>
+        <pin num="2" name="NC" type="NotConnected"/>
+        <pin num="3" name="NC" type="NotConnected"/>
+        <pin num="4" name="CLK" type="input"/>
+        <pin num="5" name="GND" type="power_in"/>
+        <pin num="6" name="SDI" type="input"/>
+        <pin num="7" name="SDO" type="input"/>
+        <pin num="8" name="CS" type="input"/>
+        <pin num="9" name="INT2" type="input"/>
+        <pin num="10" name="GND" type="power_in"/>
+        <pin num="11" name="INT1" type="input"/>
+        <pin num="12" name="GND" type="power_in"/>
+        <pin num="13" name="GND" type="power_in"/>
+        <pin num="14" name="Vdd" type="power_in"/>
+        <pin num="15" name="Vdd" type="power_in"/>
+        <pin num="16" name="GND" type="power_in"/>
+      </pins>
+    </libpart>
     <libpart lib="regul" part="LM1117-ADJ">
       <aliases>
         <alias>LM1117-1.8</alias>
@@ -557,9 +860,13 @@
       </pins>
     </libpart>
     <libpart lib="spin" part="RGB">
+      <description>RGB LED Common Anode</description>
       <fields>
         <field name="Reference">LED</field>
         <field name="Value">RGB</field>
+        <field name="Footprint">spin:LED_CLV1L-PLCC4</field>
+        <field name="Datasheet">http://www.mouser.com/ds/2/90/CLV1L%20FKB%201238-218261.pdf</field>
+        <field name="manf#">CLV1L-FKB-CHMMQDGBB7673673</field>
       </fields>
       <pins>
         <pin num="1" name="A" type="input"/>
@@ -579,11 +886,15 @@
         <pin num="2" name="2" type="input"/>
       </pins>
     </libpart>
-    <libpart lib="spin" part="STM32F410R8-LQFP64">
+    <libpart lib="spin" part="STM32F410R8/B">
       <description>STM32F4 ARM chip</description>
       <fields>
         <field name="Reference">U</field>
-        <field name="Value">STM32F410R8-LQFP64</field>
+        <field name="Value">STM32F410R8/B</field>
+        <field name="Footprint">Housings_QFP:TQFP-64_10x10mm_Pitch0.5mm</field>
+        <field name="Datasheet">http://www.st.com/web/en/resource/technical/document/datasheet/DM00214043.pdf</field>
+        <field name="manf#">STM32F410RBT6</field>
+        <field name="TEST">testes</field>
       </fields>
       <pins>
         <pin num="1" name="VBAT" type="power_in"/>
@@ -732,581 +1043,651 @@
     </libpart>
   </libparts>
   <libraries>
+    <library logical="device">
+      <uri>/usr/share/kicad/library/device.lib</uri>
+    </library>
     <library logical="conn">
       <uri>/usr/share/kicad/library/conn.lib</uri>
     </library>
     <library logical="regul">
       <uri>/usr/share/kicad/library/regul.lib</uri>
     </library>
-    <library logical="device">
-      <uri>/usr/share/kicad/library/device.lib</uri>
-    </library>
     <library logical="spin">
       <uri>/home/paho/spin/pcb/lib/spin.lib</uri>
     </library>
   </libraries>
   <nets>
-    <net code="1" name="Net-(U1-Pad36)">
-      <node ref="U1" pin="36"/>
-    </net>
-    <net code="2" name="Net-(U1-Pad57)">
-      <node ref="U1" pin="57"/>
-    </net>
-    <net code="3" name="Net-(U1-Pad58)">
-      <node ref="U1" pin="58"/>
-    </net>
-    <net code="4" name="Net-(U1-Pad59)">
-      <node ref="U1" pin="59"/>
-    </net>
-    <net code="5" name="Net-(U1-Pad61)">
-      <node ref="U1" pin="61"/>
-    </net>
-    <net code="6" name="Net-(U1-Pad62)">
-      <node ref="U1" pin="62"/>
-    </net>
-    <net code="7" name="Net-(U1-Pad29)">
-      <node ref="U1" pin="29"/>
-    </net>
-    <net code="8" name="Net-(U1-Pad54)">
-      <node ref="U1" pin="54"/>
-    </net>
-    <net code="9" name="Net-(U1-Pad33)">
-      <node ref="U1" pin="33"/>
-    </net>
-    <net code="10" name="Net-(U1-Pad34)">
-      <node ref="U1" pin="34"/>
-    </net>
-    <net code="11" name="Net-(U1-Pad35)">
-      <node ref="U1" pin="35"/>
-    </net>
-    <net code="12" name="Net-(U1-Pad56)">
-      <node ref="U1" pin="56"/>
-    </net>
-    <net code="13" name="Net-(U1-Pad24)">
-      <node ref="U1" pin="24"/>
-    </net>
-    <net code="14" name="Net-(U1-Pad25)">
-      <node ref="U1" pin="25"/>
-    </net>
-    <net code="15" name="Net-(U1-Pad37)">
-      <node ref="U1" pin="37"/>
-    </net>
-    <net code="16" name="Net-(U1-Pad38)">
-      <node ref="U1" pin="38"/>
-    </net>
-    <net code="17" name="Net-(U1-Pad39)">
-      <node ref="U1" pin="39"/>
-    </net>
-    <net code="18" name="Net-(U1-Pad40)">
-      <node ref="U1" pin="40"/>
-    </net>
-    <net code="19" name="Net-(U1-Pad51)">
-      <node ref="U1" pin="51"/>
-    </net>
-    <net code="20" name="Net-(U1-Pad52)">
-      <node ref="U1" pin="52"/>
-    </net>
-    <net code="21" name="Net-(U1-Pad53)">
-      <node ref="U1" pin="53"/>
-    </net>
-    <net code="22" name="Net-(U1-Pad2)">
-      <node ref="U1" pin="2"/>
-    </net>
-    <net code="23" name="Net-(U1-Pad5)">
-      <node ref="U1" pin="5"/>
-    </net>
-    <net code="24" name="B15">
-      <node ref="LED15" pin="3"/>
-      <node ref="LED31" pin="3"/>
-      <node ref="U3" pin="19"/>
-    </net>
-    <net code="25" name="G15">
-      <node ref="LED31" pin="4"/>
-      <node ref="U4" pin="6"/>
-      <node ref="LED15" pin="4"/>
-    </net>
-    <net code="26" name="R16">
-      <node ref="LED32" pin="2"/>
-      <node ref="U2" pin="20"/>
-      <node ref="LED16" pin="2"/>
-    </net>
-    <net code="27" name="B16">
-      <node ref="LED16" pin="3"/>
-      <node ref="U3" pin="20"/>
-      <node ref="LED32" pin="3"/>
-    </net>
-    <net code="28" name="G16">
-      <node ref="LED32" pin="4"/>
-      <node ref="LED16" pin="4"/>
-      <node ref="U4" pin="5"/>
-    </net>
-    <net code="29" name="GND">
-      <node ref="U1" pin="18"/>
-      <node ref="U1" pin="47"/>
-      <node ref="C7" pin="2"/>
-      <node ref="C9" pin="2"/>
-      <node ref="C8" pin="2"/>
-      <node ref="P3" pin="1"/>
-      <node ref="U5" pin="1"/>
-      <node ref="R5" pin="1"/>
-      <node ref="R4" pin="1"/>
-      <node ref="R3" pin="1"/>
-      <node ref="U4" pin="1"/>
-      <node ref="P1" pin="5"/>
-      <node ref="P1" pin="4"/>
-      <node ref="U2" pin="1"/>
-      <node ref="C5" pin="2"/>
-      <node ref="C4" pin="2"/>
-      <node ref="C3" pin="2"/>
-      <node ref="C2" pin="2"/>
-      <node ref="C1" pin="2"/>
-      <node ref="U3" pin="1"/>
-      <node ref="U1" pin="31"/>
-      <node ref="U1" pin="63"/>
-      <node ref="U1" pin="12"/>
-    </net>
-    <net code="30" name="Net-(U1-Pad3)">
-      <node ref="U1" pin="3"/>
-    </net>
-    <net code="31" name="Net-(U1-Pad4)">
-      <node ref="U1" pin="4"/>
-    </net>
-    <net code="32" name="Net-(U1-Pad1)">
-      <node ref="U1" pin="1"/>
-    </net>
-    <net code="33" name="Net-(U1-Pad6)">
-      <node ref="U1" pin="6"/>
-    </net>
-    <net code="34" name="Net-(U1-Pad7)">
-      <node ref="U1" pin="7"/>
-    </net>
-    <net code="35" name="Net-(U1-Pad30)">
-      <node ref="U1" pin="30"/>
-    </net>
-    <net code="36" name="Net-(U1-Pad20)">
-      <node ref="U1" pin="20"/>
-    </net>
-    <net code="37" name="Net-(U1-Pad41)">
-      <node ref="U1" pin="41"/>
-    </net>
-    <net code="38" name="Net-(U1-Pad42)">
-      <node ref="U1" pin="42"/>
-    </net>
-    <net code="39" name="Net-(U1-Pad43)">
-      <node ref="U1" pin="43"/>
-    </net>
-    <net code="40" name="Net-(U1-Pad46)">
-      <node ref="U1" pin="46"/>
-    </net>
-    <net code="41" name="Net-(U1-Pad49)">
-      <node ref="U1" pin="49"/>
-    </net>
-    <net code="42" name="Net-(U1-Pad50)">
-      <node ref="U1" pin="50"/>
-    </net>
-    <net code="43" name="MISO1">
-      <node ref="U1" pin="22"/>
-      <node ref="U2" pin="22"/>
-      <node ref="U4" pin="22"/>
-      <node ref="U3" pin="22"/>
-    </net>
-    <net code="44" name="BOOT0">
-      <node ref="U1" pin="60"/>
-      <node ref="SW1" pin="1"/>
-      <node ref="U1" pin="26"/>
-    </net>
-    <net code="45" name="MOSI1">
-      <node ref="U4" pin="2"/>
-      <node ref="U2" pin="2"/>
-      <node ref="U3" pin="2"/>
-      <node ref="U1" pin="23"/>
-    </net>
-    <net code="46" name="ADC0">
-      <node ref="U1" pin="14"/>
-    </net>
-    <net code="47" name="R15">
-      <node ref="U2" pin="19"/>
-      <node ref="LED31" pin="2"/>
-      <node ref="LED15" pin="2"/>
-    </net>
-    <net code="48" name="B12">
-      <node ref="LED12" pin="3"/>
-      <node ref="U3" pin="16"/>
-      <node ref="LED28" pin="3"/>
-    </net>
-    <net code="49" name="R10">
-      <node ref="U2" pin="14"/>
-      <node ref="LED10" pin="2"/>
-      <node ref="LED26" pin="2"/>
-    </net>
-    <net code="50" name="B10">
-      <node ref="U3" pin="14"/>
-      <node ref="LED26" pin="3"/>
-      <node ref="LED10" pin="3"/>
-    </net>
-    <net code="51" name="G10">
-      <node ref="LED26" pin="4"/>
-      <node ref="LED10" pin="4"/>
-      <node ref="U4" pin="11"/>
-    </net>
-    <net code="52" name="R11">
-      <node ref="LED11" pin="2"/>
-      <node ref="U2" pin="15"/>
-      <node ref="LED27" pin="2"/>
-    </net>
-    <net code="53" name="B11">
-      <node ref="LED27" pin="3"/>
-      <node ref="U3" pin="15"/>
-      <node ref="LED11" pin="3"/>
-    </net>
-    <net code="54" name="G11">
-      <node ref="LED11" pin="4"/>
-      <node ref="U4" pin="10"/>
-      <node ref="LED27" pin="4"/>
-    </net>
-    <net code="55" name="R12">
-      <node ref="LED28" pin="2"/>
-      <node ref="U2" pin="16"/>
-      <node ref="LED12" pin="2"/>
-    </net>
-    <net code="56" name="G9">
-      <node ref="U4" pin="12"/>
-      <node ref="LED9" pin="4"/>
-      <node ref="LED25" pin="4"/>
-    </net>
-    <net code="57" name="G12">
-      <node ref="LED28" pin="4"/>
-      <node ref="U4" pin="9"/>
-      <node ref="LED12" pin="4"/>
-    </net>
-    <net code="58" name="R13">
-      <node ref="LED29" pin="2"/>
-      <node ref="U2" pin="17"/>
-      <node ref="LED13" pin="2"/>
-    </net>
-    <net code="59" name="B13">
-      <node ref="LED13" pin="3"/>
-      <node ref="U3" pin="17"/>
-      <node ref="LED29" pin="3"/>
-    </net>
-    <net code="60" name="G13">
-      <node ref="U4" pin="8"/>
-      <node ref="LED29" pin="4"/>
-      <node ref="LED13" pin="4"/>
-    </net>
-    <net code="61" name="R14">
-      <node ref="LED30" pin="2"/>
-      <node ref="U2" pin="18"/>
-      <node ref="LED14" pin="2"/>
-    </net>
-    <net code="62" name="B14">
-      <node ref="U3" pin="18"/>
-      <node ref="LED14" pin="3"/>
-      <node ref="LED30" pin="3"/>
-    </net>
-    <net code="63" name="G14">
-      <node ref="U4" pin="7"/>
-      <node ref="LED14" pin="4"/>
-      <node ref="LED30" pin="4"/>
-    </net>
-    <net code="64" name="Net-(R1-Pad2)">
-      <node ref="R1" pin="2"/>
-      <node ref="U1" pin="44"/>
-    </net>
-    <net code="65" name="R8">
-      <node ref="U2" pin="12"/>
-      <node ref="LED8" pin="2"/>
-      <node ref="LED24" pin="2"/>
-    </net>
-    <net code="66" name="B8">
-      <node ref="LED24" pin="3"/>
-      <node ref="LED8" pin="3"/>
-      <node ref="U3" pin="12"/>
-    </net>
-    <net code="67" name="G8">
-      <node ref="U4" pin="13"/>
-      <node ref="LED24" pin="4"/>
-      <node ref="LED8" pin="4"/>
-    </net>
-    <net code="68" name="R9">
-      <node ref="LED25" pin="2"/>
-      <node ref="LED9" pin="2"/>
-      <node ref="U2" pin="13"/>
-    </net>
-    <net code="69" name="B9">
-      <node ref="LED9" pin="3"/>
-      <node ref="U3" pin="13"/>
-      <node ref="LED25" pin="3"/>
-    </net>
-    <net code="70" name="Net-(SW4-Pad1)">
-      <node ref="SW4" pin="1"/>
-      <node ref="U1" pin="55"/>
-    </net>
-    <net code="71" name="Net-(L1-Pad1)">
-      <node ref="U6" pin="6"/>
-      <node ref="U6" pin="7"/>
-      <node ref="L1" pin="1"/>
-    </net>
-    <net code="72" name="Net-(P2-Pad1)">
-      <node ref="P4" pin="1"/>
-      <node ref="P2" pin="1"/>
-    </net>
-    <net code="73" name="Net-(P5-Pad1)">
-      <node ref="P5" pin="1"/>
-      <node ref="SW5" pin="1"/>
-    </net>
-    <net code="74" name="Net-(SW2-Pad1)">
-      <node ref="U1" pin="27"/>
-      <node ref="SW2" pin="1"/>
-    </net>
-    <net code="75" name="Net-(SW3-Pad1)">
-      <node ref="U1" pin="28"/>
-      <node ref="SW3" pin="1"/>
-    </net>
-    <net code="76" name="Net-(C10-Pad2)">
-      <node ref="U6" pin="5"/>
-      <node ref="SW5" pin="2"/>
-      <node ref="C10" pin="2"/>
-      <node ref="U6" pin="8"/>
-      <node ref="L1" pin="2"/>
-    </net>
-    <net code="77" name="Net-(C10-Pad1)">
-      <node ref="U6" pin="9"/>
-      <node ref="U6" pin="1"/>
-      <node ref="R7" pin="1"/>
-      <node ref="C10" pin="1"/>
-    </net>
-    <net code="78" name="Net-(C6-Pad1)">
-      <node ref="R7" pin="2"/>
-      <node ref="R6" pin="1"/>
-      <node ref="U6" pin="2"/>
-      <node ref="C6" pin="1"/>
-    </net>
-    <net code="79" name="ADC1">
-      <node ref="U1" pin="15"/>
-    </net>
-    <net code="80" name="Net-(R2-Pad2)">
-      <node ref="U1" pin="45"/>
-      <node ref="R2" pin="2"/>
-    </net>
-    <net code="81" name="ADC2">
-      <node ref="U1" pin="16"/>
-    </net>
-    <net code="82" name="ADC3">
-      <node ref="U1" pin="17"/>
-    </net>
-    <net code="83" name="Net-(P1-Pad2)">
-      <node ref="P1" pin="2"/>
-      <node ref="R1" pin="1"/>
-    </net>
-    <net code="84" name="Net-(R3-Pad2)">
-      <node ref="U2" pin="23"/>
-      <node ref="R3" pin="2"/>
-    </net>
-    <net code="85" name="Net-(R4-Pad2)">
-      <node ref="U3" pin="23"/>
-      <node ref="R4" pin="2"/>
-    </net>
-    <net code="86" name="Net-(R5-Pad2)">
-      <node ref="U4" pin="23"/>
-      <node ref="R5" pin="2"/>
-    </net>
-    <net code="87" name="Net-(P1-Pad3)">
-      <node ref="R2" pin="1"/>
-      <node ref="P1" pin="3"/>
-    </net>
-    <net code="88" name="Net-(P1-Pad1)">
-      <node ref="P1" pin="1"/>
-      <node ref="U5" pin="3"/>
-    </net>
-    <net code="89" name="SS_BLUE">
-      <node ref="U3" pin="4"/>
-      <node ref="U1" pin="10"/>
-    </net>
-    <net code="90" name="SS_RED">
-      <node ref="U1" pin="9"/>
-      <node ref="U2" pin="4"/>
-    </net>
-    <net code="91" name="R1">
-      <node ref="U2" pin="5"/>
-      <node ref="LED1" pin="2"/>
-      <node ref="LED17" pin="2"/>
-    </net>
-    <net code="92" name="R2">
-      <node ref="LED2" pin="2"/>
-      <node ref="LED18" pin="2"/>
-      <node ref="U2" pin="6"/>
-    </net>
-    <net code="93" name="R4">
+    <net code="1" name="R7">
+      <node ref="U2" pin="11"/>
+      <node ref="LED23" pin="2"/>
+      <node ref="LED7" pin="2"/>
+    </net>
+    <net code="2" name="R4">
       <node ref="LED20" pin="2"/>
       <node ref="U2" pin="8"/>
       <node ref="LED4" pin="2"/>
     </net>
-    <net code="94" name="R5">
+    <net code="3" name="B4">
+      <node ref="LED20" pin="3"/>
+      <node ref="LED4" pin="3"/>
+      <node ref="U3" pin="8"/>
+    </net>
+    <net code="4" name="G4">
+      <node ref="LED4" pin="4"/>
+      <node ref="U4" pin="17"/>
+      <node ref="LED20" pin="4"/>
+    </net>
+    <net code="5" name="VCC">
+      <node ref="U9" pin="14"/>
+      <node ref="U3" pin="24"/>
+      <node ref="U9" pin="1"/>
+      <node ref="SW4" pin="2"/>
+      <node ref="U7" pin="1"/>
+      <node ref="U7" pin="16"/>
+      <node ref="LED5" pin="1"/>
+      <node ref="LED20" pin="1"/>
+      <node ref="LED6" pin="1"/>
+      <node ref="LED7" pin="1"/>
+      <node ref="LED9" pin="1"/>
+      <node ref="LED10" pin="1"/>
+      <node ref="R6" pin="2"/>
+      <node ref="U8" pin="14"/>
+      <node ref="U8" pin="15"/>
+      <node ref="C8" pin="1"/>
+      <node ref="C9" pin="1"/>
+      <node ref="U8" pin="1"/>
+      <node ref="U9" pin="15"/>
+      <node ref="U4" pin="24"/>
+      <node ref="SW1" pin="2"/>
+      <node ref="U1" pin="13"/>
+      <node ref="U1" pin="32"/>
+      <node ref="U1" pin="30"/>
+      <node ref="U2" pin="24"/>
+      <node ref="C1" pin="1"/>
+      <node ref="C5" pin="1"/>
+      <node ref="LED21" pin="1"/>
+      <node ref="U5" pin="4"/>
+      <node ref="U5" pin="2"/>
+      <node ref="U1" pin="64"/>
+      <node ref="LED22" pin="1"/>
+      <node ref="LED4" pin="1"/>
+      <node ref="LED3" pin="1"/>
+      <node ref="LED2" pin="1"/>
+      <node ref="LED1" pin="1"/>
+      <node ref="U1" pin="19"/>
+      <node ref="U1" pin="48"/>
+      <node ref="LED27" pin="1"/>
+      <node ref="C3" pin="1"/>
+      <node ref="U6" pin="3"/>
+      <node ref="U6" pin="4"/>
+      <node ref="C2" pin="1"/>
+      <node ref="C4" pin="1"/>
+      <node ref="C7" pin="1"/>
+      <node ref="C6" pin="2"/>
+      <node ref="LED16" pin="1"/>
+      <node ref="SW2" pin="2"/>
+      <node ref="SW3" pin="2"/>
+      <node ref="LED8" pin="1"/>
+      <node ref="LED28" pin="1"/>
+      <node ref="LED29" pin="1"/>
+      <node ref="LED30" pin="1"/>
+      <node ref="LED31" pin="1"/>
+      <node ref="LED32" pin="1"/>
+      <node ref="LED12" pin="1"/>
+      <node ref="LED13" pin="1"/>
+      <node ref="LED14" pin="1"/>
+      <node ref="LED11" pin="1"/>
+      <node ref="LED15" pin="1"/>
+      <node ref="LED18" pin="1"/>
+      <node ref="LED23" pin="1"/>
+      <node ref="LED24" pin="1"/>
+      <node ref="LED25" pin="1"/>
+      <node ref="LED26" pin="1"/>
+      <node ref="LED17" pin="1"/>
+      <node ref="LED19" pin="1"/>
+    </net>
+    <net code="6" name="R5">
       <node ref="LED21" pin="2"/>
       <node ref="U2" pin="9"/>
       <node ref="LED5" pin="2"/>
     </net>
-    <net code="95" name="R6">
-      <node ref="LED6" pin="2"/>
+    <net code="7" name="B5">
+      <node ref="LED5" pin="3"/>
+      <node ref="LED21" pin="3"/>
+      <node ref="U3" pin="9"/>
+    </net>
+    <net code="8" name="G5">
+      <node ref="LED21" pin="4"/>
+      <node ref="U4" pin="16"/>
+      <node ref="LED5" pin="4"/>
+    </net>
+    <net code="9" name="R6">
       <node ref="LED22" pin="2"/>
+      <node ref="LED6" pin="2"/>
       <node ref="U2" pin="10"/>
     </net>
-    <net code="96" name="R7">
-      <node ref="LED7" pin="2"/>
-      <node ref="LED23" pin="2"/>
-      <node ref="U2" pin="11"/>
-    </net>
-    <net code="97" name="LED_TOG">
-      <node ref="U3" pin="21"/>
-      <node ref="U4" pin="21"/>
-      <node ref="U2" pin="21"/>
-      <node ref="U1" pin="8"/>
-    </net>
-    <net code="98" name="SCK1">
-      <node ref="U4" pin="3"/>
-      <node ref="U3" pin="3"/>
-      <node ref="U2" pin="3"/>
-      <node ref="U1" pin="21"/>
-    </net>
-    <net code="99" name="R3">
-      <node ref="U2" pin="7"/>
-      <node ref="LED3" pin="2"/>
-      <node ref="LED19" pin="2"/>
-    </net>
-    <net code="100" name="B4">
-      <node ref="LED20" pin="3"/>
-      <node ref="U3" pin="8"/>
-      <node ref="LED4" pin="3"/>
-    </net>
-    <net code="101" name="G4">
-      <node ref="LED20" pin="4"/>
-      <node ref="U4" pin="17"/>
-      <node ref="LED4" pin="4"/>
-    </net>
-    <net code="102" name="B5">
-      <node ref="U3" pin="9"/>
-      <node ref="LED21" pin="3"/>
-      <node ref="LED5" pin="3"/>
-    </net>
-    <net code="103" name="G5">
-      <node ref="LED5" pin="4"/>
-      <node ref="U4" pin="16"/>
-      <node ref="LED21" pin="4"/>
-    </net>
-    <net code="104" name="B6">
+    <net code="10" name="B6">
       <node ref="LED22" pin="3"/>
-      <node ref="U3" pin="10"/>
       <node ref="LED6" pin="3"/>
+      <node ref="U3" pin="10"/>
     </net>
-    <net code="105" name="G6">
-      <node ref="U4" pin="15"/>
-      <node ref="LED22" pin="4"/>
+    <net code="11" name="G6">
       <node ref="LED6" pin="4"/>
+      <node ref="LED22" pin="4"/>
+      <node ref="U4" pin="15"/>
     </net>
-    <net code="106" name="B7">
-      <node ref="U3" pin="11"/>
-      <node ref="LED23" pin="3"/>
+    <net code="12" name="B7">
       <node ref="LED7" pin="3"/>
+      <node ref="LED23" pin="3"/>
+      <node ref="U3" pin="11"/>
     </net>
-    <net code="107" name="G7">
+    <net code="13" name="G7">
+      <node ref="LED23" pin="4"/>
       <node ref="U4" pin="14"/>
       <node ref="LED7" pin="4"/>
-      <node ref="LED23" pin="4"/>
     </net>
-    <net code="108" name="G1">
-      <node ref="LED17" pin="4"/>
-      <node ref="LED1" pin="4"/>
-      <node ref="U4" pin="20"/>
+    <net code="14" name="R8">
+      <node ref="LED8" pin="2"/>
+      <node ref="LED24" pin="2"/>
+      <node ref="U2" pin="12"/>
     </net>
-    <net code="109" name="VCC">
-      <node ref="LED17" pin="1"/>
-      <node ref="LED16" pin="1"/>
-      <node ref="LED30" pin="1"/>
-      <node ref="LED32" pin="1"/>
-      <node ref="LED31" pin="1"/>
-      <node ref="LED27" pin="1"/>
-      <node ref="U4" pin="24"/>
-      <node ref="U6" pin="4"/>
-      <node ref="U6" pin="3"/>
-      <node ref="LED26" pin="1"/>
-      <node ref="LED28" pin="1"/>
-      <node ref="SW4" pin="2"/>
-      <node ref="LED25" pin="1"/>
-      <node ref="LED20" pin="1"/>
-      <node ref="LED24" pin="1"/>
-      <node ref="LED19" pin="1"/>
-      <node ref="LED29" pin="1"/>
-      <node ref="LED18" pin="1"/>
-      <node ref="C4" pin="1"/>
-      <node ref="C9" pin="1"/>
-      <node ref="C3" pin="1"/>
-      <node ref="C1" pin="1"/>
-      <node ref="C2" pin="1"/>
-      <node ref="LED1" pin="1"/>
-      <node ref="C8" pin="1"/>
-      <node ref="C5" pin="1"/>
-      <node ref="U1" pin="13"/>
-      <node ref="C7" pin="1"/>
-      <node ref="LED7" pin="1"/>
-      <node ref="LED2" pin="1"/>
-      <node ref="LED3" pin="1"/>
-      <node ref="U3" pin="24"/>
-      <node ref="U1" pin="64"/>
-      <node ref="SW2" pin="2"/>
-      <node ref="U1" pin="48"/>
-      <node ref="U5" pin="4"/>
-      <node ref="U5" pin="2"/>
-      <node ref="U1" pin="19"/>
-      <node ref="R6" pin="2"/>
-      <node ref="U2" pin="24"/>
-      <node ref="LED12" pin="1"/>
-      <node ref="LED15" pin="1"/>
-      <node ref="U1" pin="32"/>
-      <node ref="SW1" pin="2"/>
-      <node ref="LED8" pin="1"/>
-      <node ref="LED14" pin="1"/>
-      <node ref="LED13" pin="1"/>
-      <node ref="LED9" pin="1"/>
-      <node ref="LED5" pin="1"/>
-      <node ref="SW3" pin="2"/>
-      <node ref="LED4" pin="1"/>
-      <node ref="LED22" pin="1"/>
-      <node ref="LED21" pin="1"/>
-      <node ref="LED23" pin="1"/>
-      <node ref="LED6" pin="1"/>
-      <node ref="LED10" pin="1"/>
-      <node ref="C6" pin="2"/>
-      <node ref="LED11" pin="1"/>
+    <net code="15" name="B8">
+      <node ref="LED8" pin="3"/>
+      <node ref="LED24" pin="3"/>
+      <node ref="U3" pin="12"/>
     </net>
-    <net code="110" name="B1">
-      <node ref="LED17" pin="3"/>
+    <net code="16" name="G8">
+      <node ref="LED24" pin="4"/>
+      <node ref="U4" pin="13"/>
+      <node ref="LED8" pin="4"/>
+    </net>
+    <net code="17" name="R9">
+      <node ref="U2" pin="13"/>
+      <node ref="LED9" pin="2"/>
+      <node ref="LED25" pin="2"/>
+    </net>
+    <net code="18" name="B9">
+      <node ref="U3" pin="13"/>
+      <node ref="LED9" pin="3"/>
+      <node ref="LED25" pin="3"/>
+    </net>
+    <net code="19" name="G9">
+      <node ref="LED9" pin="4"/>
+      <node ref="U4" pin="12"/>
+      <node ref="LED25" pin="4"/>
+    </net>
+    <net code="20" name="R10">
+      <node ref="U2" pin="14"/>
+      <node ref="LED26" pin="2"/>
+      <node ref="LED10" pin="2"/>
+    </net>
+    <net code="21" name="R1">
+      <node ref="LED17" pin="2"/>
+      <node ref="U2" pin="5"/>
+      <node ref="LED1" pin="2"/>
+    </net>
+    <net code="22" name="B1">
       <node ref="U3" pin="5"/>
       <node ref="LED1" pin="3"/>
+      <node ref="LED17" pin="3"/>
     </net>
-    <net code="111" name="B2">
-      <node ref="LED2" pin="3"/>
-      <node ref="LED18" pin="3"/>
+    <net code="23" name="G1">
+      <node ref="LED17" pin="4"/>
+      <node ref="U4" pin="20"/>
+      <node ref="LED1" pin="4"/>
+    </net>
+    <net code="24" name="R2">
+      <node ref="LED18" pin="2"/>
+      <node ref="LED2" pin="2"/>
+      <node ref="U2" pin="6"/>
+    </net>
+    <net code="25" name="B2">
       <node ref="U3" pin="6"/>
+      <node ref="LED18" pin="3"/>
+      <node ref="LED2" pin="3"/>
     </net>
-    <net code="112" name="G2">
+    <net code="26" name="G2">
       <node ref="LED2" pin="4"/>
       <node ref="U4" pin="19"/>
       <node ref="LED18" pin="4"/>
     </net>
-    <net code="113" name="B3">
-      <node ref="LED3" pin="3"/>
+    <net code="27" name="R3">
+      <node ref="LED19" pin="2"/>
+      <node ref="LED3" pin="2"/>
+      <node ref="U2" pin="7"/>
+    </net>
+    <net code="28" name="B3">
       <node ref="U3" pin="7"/>
       <node ref="LED19" pin="3"/>
+      <node ref="LED3" pin="3"/>
     </net>
-    <net code="114" name="G3">
-      <node ref="LED3" pin="4"/>
-      <node ref="LED19" pin="4"/>
+    <net code="29" name="G3">
       <node ref="U4" pin="18"/>
+      <node ref="LED19" pin="4"/>
+      <node ref="LED3" pin="4"/>
     </net>
-    <net code="115" name="SS_GREEN">
+    <net code="30" name="G16">
+      <node ref="LED32" pin="4"/>
+      <node ref="U4" pin="5"/>
+      <node ref="LED16" pin="4"/>
+    </net>
+    <net code="31" name="B16">
+      <node ref="U3" pin="20"/>
+      <node ref="LED16" pin="3"/>
+      <node ref="LED32" pin="3"/>
+    </net>
+    <net code="32" name="Net-(P1-Pad3)">
+      <node ref="P1" pin="3"/>
+      <node ref="R2" pin="1"/>
+    </net>
+    <net code="33" name="Net-(R5-Pad2)">
+      <node ref="R5" pin="2"/>
+      <node ref="U4" pin="23"/>
+    </net>
+    <net code="34" name="B13">
+      <node ref="U3" pin="17"/>
+      <node ref="LED13" pin="3"/>
+      <node ref="LED29" pin="3"/>
+    </net>
+    <net code="35" name="B10">
+      <node ref="U3" pin="14"/>
+      <node ref="LED10" pin="3"/>
+      <node ref="LED26" pin="3"/>
+    </net>
+    <net code="36" name="G10">
+      <node ref="U4" pin="11"/>
+      <node ref="LED10" pin="4"/>
+      <node ref="LED26" pin="4"/>
+    </net>
+    <net code="37" name="R11">
+      <node ref="LED11" pin="2"/>
+      <node ref="LED27" pin="2"/>
+      <node ref="U2" pin="15"/>
+    </net>
+    <net code="38" name="B11">
+      <node ref="LED27" pin="3"/>
+      <node ref="LED11" pin="3"/>
+      <node ref="U3" pin="15"/>
+    </net>
+    <net code="39" name="G11">
+      <node ref="LED27" pin="4"/>
+      <node ref="U4" pin="10"/>
+      <node ref="LED11" pin="4"/>
+    </net>
+    <net code="40" name="R12">
+      <node ref="LED28" pin="2"/>
+      <node ref="LED12" pin="2"/>
+      <node ref="U2" pin="16"/>
+    </net>
+    <net code="41" name="B12">
+      <node ref="LED28" pin="3"/>
+      <node ref="U3" pin="16"/>
+      <node ref="LED12" pin="3"/>
+    </net>
+    <net code="42" name="G12">
+      <node ref="LED12" pin="4"/>
+      <node ref="U4" pin="9"/>
+      <node ref="LED28" pin="4"/>
+    </net>
+    <net code="43" name="R13">
+      <node ref="LED13" pin="2"/>
+      <node ref="LED29" pin="2"/>
+      <node ref="U2" pin="17"/>
+    </net>
+    <net code="44" name="G13">
+      <node ref="U4" pin="8"/>
+      <node ref="LED13" pin="4"/>
+      <node ref="LED29" pin="4"/>
+    </net>
+    <net code="45" name="R14">
+      <node ref="LED30" pin="2"/>
+      <node ref="U2" pin="18"/>
+      <node ref="LED14" pin="2"/>
+    </net>
+    <net code="46" name="B14">
+      <node ref="LED14" pin="3"/>
+      <node ref="LED30" pin="3"/>
+      <node ref="U3" pin="18"/>
+    </net>
+    <net code="47" name="G14">
+      <node ref="U4" pin="7"/>
+      <node ref="LED30" pin="4"/>
+      <node ref="LED14" pin="4"/>
+    </net>
+    <net code="48" name="R15">
+      <node ref="LED31" pin="2"/>
+      <node ref="U2" pin="19"/>
+      <node ref="LED15" pin="2"/>
+    </net>
+    <net code="49" name="B15">
+      <node ref="LED15" pin="3"/>
+      <node ref="U3" pin="19"/>
+      <node ref="LED31" pin="3"/>
+    </net>
+    <net code="50" name="G15">
+      <node ref="LED31" pin="4"/>
+      <node ref="LED15" pin="4"/>
+      <node ref="U4" pin="6"/>
+    </net>
+    <net code="51" name="R16">
+      <node ref="LED16" pin="2"/>
+      <node ref="LED32" pin="2"/>
+      <node ref="U2" pin="20"/>
+    </net>
+    <net code="52" name="SS_ACC1">
+      <node ref="U1" pin="25"/>
+      <node ref="U8" pin="8"/>
+    </net>
+    <net code="53" name="Net-(U8-Pad9)">
+      <node ref="U8" pin="9"/>
+    </net>
+    <net code="54" name="Net-(U8-Pad11)">
+      <node ref="U8" pin="11"/>
+    </net>
+    <net code="55" name="GND">
+      <node ref="U2" pin="1"/>
+      <node ref="U9" pin="16"/>
+      <node ref="C1" pin="2"/>
+      <node ref="C5" pin="2"/>
+      <node ref="U9" pin="5"/>
+      <node ref="U8" pin="5"/>
+      <node ref="U8" pin="10"/>
+      <node ref="U8" pin="12"/>
+      <node ref="U8" pin="13"/>
+      <node ref="U8" pin="16"/>
+      <node ref="R7" pin="1"/>
+      <node ref="C8" pin="2"/>
+      <node ref="C9" pin="2"/>
+      <node ref="C10" pin="1"/>
+      <node ref="U4" pin="1"/>
+      <node ref="R5" pin="1"/>
+      <node ref="C4" pin="2"/>
+      <node ref="P1" pin="4"/>
+      <node ref="U5" pin="1"/>
+      <node ref="U7" pin="15"/>
+      <node ref="P3" pin="1"/>
+      <node ref="U7" pin="13"/>
+      <node ref="U1" pin="18"/>
+      <node ref="U6" pin="1"/>
+      <node ref="U3" pin="1"/>
+      <node ref="U9" pin="12"/>
+      <node ref="U1" pin="63"/>
+      <node ref="C7" pin="2"/>
+      <node ref="U6" pin="9"/>
+      <node ref="U1" pin="47"/>
+      <node ref="C2" pin="2"/>
+      <node ref="C3" pin="2"/>
+      <node ref="U7" pin="10"/>
+      <node ref="R3" pin="1"/>
+      <node ref="R4" pin="1"/>
+      <node ref="U9" pin="13"/>
+      <node ref="U9" pin="10"/>
+      <node ref="U7" pin="12"/>
+      <node ref="U1" pin="12"/>
+      <node ref="U7" pin="9"/>
+      <node ref="U1" pin="31"/>
+      <node ref="U7" pin="11"/>
+    </net>
+    <net code="56" name="Net-(U8-Pad2)">
+      <node ref="U8" pin="2"/>
+    </net>
+    <net code="57" name="Net-(U8-Pad3)">
+      <node ref="U8" pin="3"/>
+    </net>
+    <net code="58" name="Net-(U9-Pad2)">
+      <node ref="U9" pin="2"/>
+    </net>
+    <net code="59" name="Net-(U9-Pad3)">
+      <node ref="U9" pin="3"/>
+    </net>
+    <net code="60" name="SCK1">
+      <node ref="U1" pin="21"/>
+      <node ref="U3" pin="3"/>
+      <node ref="U4" pin="3"/>
+      <node ref="U2" pin="3"/>
+      <node ref="U8" pin="4"/>
+      <node ref="U9" pin="4"/>
+      <node ref="U7" pin="2"/>
+    </net>
+    <net code="61" name="MOSI1">
+      <node ref="U1" pin="23"/>
+      <node ref="U3" pin="2"/>
+      <node ref="U7" pin="3"/>
+      <node ref="U9" pin="6"/>
+      <node ref="U4" pin="2"/>
+      <node ref="U8" pin="6"/>
+      <node ref="U2" pin="2"/>
+    </net>
+    <net code="62" name="MISO1">
+      <node ref="U1" pin="22"/>
+      <node ref="U4" pin="22"/>
+      <node ref="U2" pin="22"/>
+      <node ref="U8" pin="7"/>
+      <node ref="U7" pin="4"/>
+      <node ref="U3" pin="22"/>
+      <node ref="U9" pin="7"/>
+    </net>
+    <net code="63" name="SS_ACC2">
+      <node ref="U9" pin="8"/>
+      <node ref="U1" pin="37"/>
+    </net>
+    <net code="64" name="Net-(U9-Pad9)">
+      <node ref="U9" pin="9"/>
+    </net>
+    <net code="65" name="Net-(U9-Pad11)">
+      <node ref="U9" pin="11"/>
+    </net>
+    <net code="66" name="Net-(R3-Pad2)">
+      <node ref="R3" pin="2"/>
+      <node ref="U2" pin="23"/>
+    </net>
+    <net code="67" name="Net-(R4-Pad2)">
+      <node ref="U3" pin="23"/>
+      <node ref="R4" pin="2"/>
+    </net>
+    <net code="68" name="Net-(R1-Pad2)">
+      <node ref="R1" pin="2"/>
+      <node ref="U1" pin="44"/>
+    </net>
+    <net code="69" name="SS_GYRO">
+      <node ref="U1" pin="24"/>
+      <node ref="U7" pin="5"/>
+    </net>
+    <net code="70" name="Net-(U7-Pad6)">
+      <node ref="U7" pin="6"/>
+    </net>
+    <net code="71" name="Net-(U7-Pad7)">
+      <node ref="U7" pin="7"/>
+    </net>
+    <net code="72" name="Net-(U7-Pad8)">
+      <node ref="U7" pin="8"/>
+    </net>
+    <net code="73" name="Net-(U7-Pad14)">
+      <node ref="U7" pin="14"/>
+    </net>
+    <net code="74" name="Net-(SW4-Pad1)">
+      <node ref="SW4" pin="1"/>
+      <node ref="U1" pin="55"/>
+    </net>
+    <net code="75" name="Net-(R2-Pad2)">
+      <node ref="U1" pin="45"/>
+      <node ref="R2" pin="2"/>
+    </net>
+    <net code="76" name="Net-(P1-Pad2)">
+      <node ref="P1" pin="2"/>
+      <node ref="R1" pin="1"/>
+    </net>
+    <net code="77" name="Net-(P1-Pad1)">
+      <node ref="P1" pin="1"/>
+      <node ref="U5" pin="3"/>
+    </net>
+    <net code="78" name="Net-(P2-Pad1)">
+      <node ref="P4" pin="1"/>
+      <node ref="P2" pin="1"/>
+    </net>
+    <net code="79" name="Net-(SW2-Pad1)">
+      <node ref="SW2" pin="1"/>
+      <node ref="U1" pin="27"/>
+    </net>
+    <net code="80" name="Net-(SW3-Pad1)">
+      <node ref="U1" pin="28"/>
+      <node ref="SW3" pin="1"/>
+    </net>
+    <net code="81" name="Net-(U1-Pad4)">
+      <node ref="U1" pin="4"/>
+    </net>
+    <net code="82" name="Net-(P1-Pad5)">
+      <node ref="P1" pin="5"/>
+    </net>
+    <net code="83" name="Net-(U1-Pad3)">
+      <node ref="U1" pin="3"/>
+    </net>
+    <net code="84" name="Net-(U1-Pad5)">
+      <node ref="U1" pin="5"/>
+    </net>
+    <net code="85" name="Net-(U1-Pad6)">
+      <node ref="U1" pin="6"/>
+    </net>
+    <net code="86" name="Net-(U1-Pad7)">
+      <node ref="U1" pin="7"/>
+    </net>
+    <net code="87" name="Net-(U1-Pad20)">
+      <node ref="U1" pin="20"/>
+    </net>
+    <net code="88" name="Net-(U1-Pad41)">
+      <node ref="U1" pin="41"/>
+    </net>
+    <net code="89" name="Net-(U1-Pad42)">
+      <node ref="U1" pin="42"/>
+    </net>
+    <net code="90" name="Net-(U1-Pad43)">
+      <node ref="U1" pin="43"/>
+    </net>
+    <net code="91" name="Net-(U1-Pad46)">
+      <node ref="U1" pin="46"/>
+    </net>
+    <net code="92" name="Net-(U1-Pad49)">
+      <node ref="U1" pin="49"/>
+    </net>
+    <net code="93" name="Net-(U1-Pad50)">
+      <node ref="U1" pin="50"/>
+    </net>
+    <net code="94" name="Net-(U1-Pad56)">
+      <node ref="U1" pin="56"/>
+    </net>
+    <net code="95" name="Net-(U1-Pad57)">
+      <node ref="U1" pin="57"/>
+    </net>
+    <net code="96" name="SS_RED">
+      <node ref="U2" pin="4"/>
+      <node ref="U1" pin="9"/>
+    </net>
+    <net code="97" name="SS_BLUE">
+      <node ref="U1" pin="10"/>
+      <node ref="U3" pin="4"/>
+    </net>
+    <net code="98" name="Net-(U1-Pad40)">
+      <node ref="U1" pin="40"/>
+    </net>
+    <net code="99" name="BOOT0">
+      <node ref="U1" pin="60"/>
+      <node ref="U1" pin="26"/>
+      <node ref="SW1" pin="1"/>
+    </net>
+    <net code="100" name="SS_GREEN">
       <node ref="U1" pin="11"/>
       <node ref="U4" pin="4"/>
+    </net>
+    <net code="101" name="Net-(U1-Pad51)">
+      <node ref="U1" pin="51"/>
+    </net>
+    <net code="102" name="Net-(U1-Pad61)">
+      <node ref="U1" pin="61"/>
+    </net>
+    <net code="103" name="Net-(U1-Pad52)">
+      <node ref="U1" pin="52"/>
+    </net>
+    <net code="104" name="Net-(U1-Pad62)">
+      <node ref="U1" pin="62"/>
+    </net>
+    <net code="105" name="Net-(U1-Pad33)">
+      <node ref="U1" pin="33"/>
+    </net>
+    <net code="106" name="Net-(U1-Pad1)">
+      <node ref="U1" pin="1"/>
+    </net>
+    <net code="107" name="Net-(U1-Pad2)">
+      <node ref="U1" pin="2"/>
+    </net>
+    <net code="108" name="Net-(U1-Pad38)">
+      <node ref="U1" pin="38"/>
+    </net>
+    <net code="109" name="Net-(U1-Pad58)">
+      <node ref="U1" pin="58"/>
+    </net>
+    <net code="110" name="Net-(U1-Pad29)">
+      <node ref="U1" pin="29"/>
+    </net>
+    <net code="111" name="Net-(U1-Pad39)">
+      <node ref="U1" pin="39"/>
+    </net>
+    <net code="112" name="Net-(U1-Pad59)">
+      <node ref="U1" pin="59"/>
+    </net>
+    <net code="113" name="Net-(U1-Pad53)">
+      <node ref="U1" pin="53"/>
+    </net>
+    <net code="114" name="ADC0">
+      <node ref="U1" pin="14"/>
+    </net>
+    <net code="115" name="Net-(U1-Pad34)">
+      <node ref="U1" pin="34"/>
+    </net>
+    <net code="116" name="Net-(U1-Pad54)">
+      <node ref="U1" pin="54"/>
+    </net>
+    <net code="117" name="Net-(U1-Pad15)">
+      <node ref="U1" pin="15"/>
+    </net>
+    <net code="118" name="Net-(U1-Pad35)">
+      <node ref="U1" pin="35"/>
+    </net>
+    <net code="119" name="Net-(U1-Pad16)">
+      <node ref="U1" pin="16"/>
+    </net>
+    <net code="120" name="Net-(U1-Pad36)">
+      <node ref="U1" pin="36"/>
+    </net>
+    <net code="121" name="Net-(U1-Pad17)">
+      <node ref="U1" pin="17"/>
+    </net>
+    <net code="122" name="Net-(P5-Pad1)">
+      <node ref="SW5" pin="1"/>
+      <node ref="P5" pin="1"/>
+    </net>
+    <net code="123" name="Net-(L1-Pad1)">
+      <node ref="U6" pin="7"/>
+      <node ref="U6" pin="6"/>
+      <node ref="L1" pin="1"/>
+    </net>
+    <net code="124" name="Net-(C10-Pad2)">
+      <node ref="U6" pin="8"/>
+      <node ref="L1" pin="2"/>
+      <node ref="U6" pin="5"/>
+      <node ref="C10" pin="2"/>
+      <node ref="SW5" pin="2"/>
+    </net>
+    <net code="125" name="LED_TOG">
+      <node ref="U2" pin="21"/>
+      <node ref="U3" pin="21"/>
+      <node ref="U1" pin="8"/>
+      <node ref="U4" pin="21"/>
+    </net>
+    <net code="126" name="Net-(C6-Pad1)">
+      <node ref="U6" pin="2"/>
+      <node ref="R6" pin="1"/>
+      <node ref="R7" pin="2"/>
+      <node ref="C6" pin="1"/>
     </net>
   </nets>
 </export>

@@ -1,8 +1,18 @@
 EESchema-DOCLIB  Version 2.0
 #
-$CMP STM32F410R8-LQFP64
-D STM32F4 ARM chip
-K stm arm microcontroller
+$CMP L3GD20HTR
+D 3 axis gyroscope, +/- 245 dps, +/- 500 dps, +/- 2000 dps
+K gyroscope
+$ENDCMP
+#
+$CMP LIS331HH
+D 3-axis accelerometer, 6g, 12g, 24g
+K accelerometer
+$ENDCMP
+#
+$CMP RGB
+D RGB LED Common Anode
+K RGB LED
 $ENDCMP
 #
 $CMP STM32F410R8/B
