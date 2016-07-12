@@ -10,6 +10,11 @@ D 3-axis accelerometer, 6g, 12g, 24g
 K accelerometer
 $ENDCMP
 #
+$CMP MP34DT01-M
+D MEMS Digital Microphone
+K microphone
+$ENDCMP
+#
 $CMP RGB
 D RGB LED Common Anode
 K RGB LED
