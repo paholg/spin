@@ -1,7 +1,7 @@
 (export (version D)
   (design
     (source /home/paho/spin/pcb/prototype1/prototype1.sch)
-    (date "Mon 11 Jul 2016 07:41:38 PM PDT")
+    (date "Tue 12 Jul 2016 03:35:14 PM PDT")
     (tool "Eeschema 4.0.2-stable")
     (sheet (number 1) (name /) (tstamps /)
       (title_block
@@ -1141,14 +1141,14 @@
         (pin (num 4) (name GND) (type power_in))
         (pin (num 5) (name shield) (type passive)))))
   (libraries
-    (library (logical conn)
-      (uri /usr/share/kicad/library/conn.lib))
     (library (logical device)
       (uri /usr/share/kicad/library/device.lib))
-    (library (logical regul)
-      (uri /usr/share/kicad/library/regul.lib))
     (library (logical memory)
       (uri /usr/share/kicad/library/memory.lib))
+    (library (logical conn)
+      (uri /usr/share/kicad/library/conn.lib))
+    (library (logical regul)
+      (uri /usr/share/kicad/library/regul.lib))
     (library (logical spin)
       (uri /home/paho/spin/pcb/lib/spin.lib)))
   (nets
