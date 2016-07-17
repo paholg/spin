@@ -20,6 +20,11 @@ D RGB LED Common Anode
 K RGB LED
 $ENDCMP
 #
+$CMP SPST_two_terminals
+D switch spst
+K switch button spst
+$ENDCMP
+#
 $CMP STM32F401
 D STM32F401 ARM chip
 K stm arm microcontroller
