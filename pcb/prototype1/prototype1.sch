@@ -347,7 +347,6 @@ NoConn ~ 1550 4650
 NoConn ~ 1550 4750
 NoConn ~ 1550 4850
 NoConn ~ 1550 4950
-NoConn ~ 1550 5050
 NoConn ~ 1550 5250
 NoConn ~ 1550 5350
 NoConn ~ 1550 5450
@@ -1785,7 +1784,7 @@ Text GLabel 1550 6550 2    60   Input ~ 0
 FLASH_HOLD
 Text GLabel 1550 4150 2    60   Input ~ 0
 BUT1
-Text GLabel 1550 4250 2    60   Input ~ 0
+Text GLabel 1550 5050 2    60   Input ~ 0
 BUT2
 Text GLabel 1550 4350 2    60   Input ~ 0
 BUT3
@@ -1939,7 +1938,7 @@ Text GLabel 2650 3850 0    60   Input ~ 0
 OSC_OUT
 Text GLabel 1550 5150 2    60   Input ~ 0
 MIC_CLK
-Text GLabel 1550 6650 2    60   Input ~ 0
+Text GLabel 1550 4250 2    60   Input ~ 0
 MIC_DATA
 Text GLabel 3500 2400 2    60   Input ~ 0
 MIC_CLK
@@ -2639,4 +2638,5 @@ Connection ~ 8800 6050
 Connection ~ 9100 6050
 Wire Notes Line
 	10500 6500 10500 5900
+NoConn ~ 1550 6650
 $EndSCHEMATC
