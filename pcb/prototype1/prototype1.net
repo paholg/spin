@@ -1,7 +1,7 @@
 (export (version D)
   (design
     (source /home/paho/spin/pcb/prototype1/prototype1.sch)
-    (date "Thu 14 Jul 2016 01:14:17 AM PDT")
+    (date "Sat 16 Jul 2016 10:43:47 PM PDT")
     (tool "Eeschema 4.0.2-stable")
     (sheet (number 1) (name /) (tstamps /)
       (title_block
@@ -248,7 +248,7 @@
       (tstamp 5767A0CB))
     (comp (ref U11)
       (value LD1117S33CTR)
-      (footprint TO_SOT_Packages_SMD:SOT-223)
+      (footprint spin:SOT-223)
       (datasheet http://www.mouser.com/ds/2/389/CD00000544-310772.pdf)
       (fields
         (field (name manf#) LD1117S33CTR))
@@ -1188,16 +1188,16 @@
         (pin (num 4) (name GND) (type power_in))
         (pin (num 5) (name shield) (type passive)))))
   (libraries
-    (library (logical conn)
-      (uri /usr/share/kicad/library/conn.lib))
-    (library (logical regul)
-      (uri /usr/share/kicad/library/regul.lib))
-    (library (logical memory)
-      (uri /usr/share/kicad/library/memory.lib))
     (library (logical device)
       (uri /usr/share/kicad/library/device.lib))
+    (library (logical conn)
+      (uri /usr/share/kicad/library/conn.lib))
     (library (logical spin)
-      (uri /home/paho/spin/pcb/lib/spin.lib)))
+      (uri /home/paho/spin/pcb/lib/spin.lib))
+    (library (logical memory)
+      (uri /usr/share/kicad/library/memory.lib))
+    (library (logical regul)
+      (uri /usr/share/kicad/library/regul.lib)))
   (nets
     (net (code 1) (name "Net-(U1-Pad41)")
       (node (ref U1) (pin 41)))
