@@ -24,8 +24,7 @@ fn main() {
 
     let mut old = Instant::now();
 
-    let fps = 60;
-    let time_per_frame = Duration::new(0, 1_000_000_000 / fps);
+    let time_per_frame = Duration::from_millis(3);
 
     loop {
         let now = Instant::now();
@@ -34,11 +33,12 @@ fn main() {
             for led in spinner.leds() {
                 *led = Rgb::from(grad_it.next().unwrap());
             }
-            spinner.update();
             old = now;
         }
-        else {
-            std::thread::sleep(time_per_frame - elapsed);
-        }
+
+        spinner.update();
+        // else {
+        //     std::thread::sleep(time_per_frame - elapsed);
+        // }
     }
 }

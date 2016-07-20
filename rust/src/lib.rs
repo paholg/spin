@@ -1,3 +1,5 @@
+//! This is a module comment!
+
 // #![feature(plugin)]
 // #![no_std]
 // #![plugin(macro_zinc)]
@@ -13,6 +15,8 @@ pub mod sim;
 
 pub const NLEDS: usize = 16;
 
+
+/// This is a doc comment!
 pub trait Spin {
     fn update(&mut self);
 
@@ -21,4 +25,5 @@ pub trait Spin {
     fn alpha(&self) -> f32;
 
     fn leds(&mut self) -> &mut [Rgb; NLEDS];
+    fn get_leds(&self) -> &[Rgb; NLEDS];
 }
