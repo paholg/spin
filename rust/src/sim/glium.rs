@@ -17,12 +17,11 @@ const R0: f32 = 0.2 * mm;
 const LED_SIZE: f32 = 2.8 * mm;
 const SPACE: f32 = 0.2 * mm;
 
-const LED_DUR: u64 = 10;
-const NVERTS: usize = 1000;
+const NVERTS: usize = 720;
 
-const ALPHA0: f32 = 2.0 * PI * 3.0; // rad/s^2
+const ALPHA0: f32 = 2.0 * PI * 30.0; // rad/s^2
 const OMEGA0: f32 = 0.0;
-const OMEGA_MAX: f32 = 2.0 * PI * 25.0; // rad/s
+const OMEGA_MAX: f32 = 2.0 * PI * 50.0; // rad/s
 
 const DPHIMAX: f32 = 1.0 * PI / 180.0;
 
@@ -57,14 +56,6 @@ impl Vertex {
         Vertex {
             phi: phi,
             creation_time: Instant::now(),
-            position: [x, y],
-            color: [c.red, c.green, c.blue],
-        }
-    }
-    fn at_time(t: Instant, phi: f32, x: f32, y: f32, c: Rgb) -> Vertex {
-        Vertex {
-            phi: phi,
-            creation_time: t,
             position: [x, y],
             color: [c.red, c.green, c.blue],
         }
@@ -115,16 +106,16 @@ impl Spin for SimSpin {
         let dt: f32 = dur.as_secs() as f32 + (dur.subsec_nanos() as f32)/1.0e9;
         let dphi = self.omega * dt;
 
-        println!("fps: {:05.1}, omega: {:.1}, dphi: {:.2} deg",
+        println!("fps: {:6.1}, omega: {:6.2}, dphi: {:6.2} deg",
                  1.0/dt, self.omega, dphi * 180. / PI);
 
         // Move the disc
-        self.omega += self.alpha * dt;
-        self.phi += dphi;
-
         if self.omega.abs() > OMEGA_MAX {
             self.alpha = -self.alpha;
         }
+
+        self.omega += self.alpha * dt;
+        self.phi += dphi;
 
         while self.phi >= 2.0*PI { self.phi -= 2.0*PI; }
 
@@ -151,19 +142,12 @@ impl Spin for SimSpin {
                 shape.push(Vertex::new(phi, v2*phi.cos(), v2*phi.sin(), led.clone()));
             }
 
-            // shape.remove(0);
-            // shape.remove(0);
-
-            // shape.push(Vertex::new(self.phi, v1*self.phi.cos(), v1*self.phi.sin(), led.clone()));
-            // shape.push(Vertex::new(self.phi, v2*self.phi.cos(), v2*self.phi.sin(), led.clone()));
-
         }
 
         let frame_dur = Duration::new(0, (1.0e9/60.0) as u32);
         let since_last_draw = now.duration_since(self.last_draw);
 
         if since_last_draw > frame_dur {
-            // println!("fps: {}", 1.0e9 / since_last_draw.subsec_nanos() as f32);
             let mut target = self.display.draw();
 
             use glium::Surface;
@@ -190,7 +174,7 @@ impl Spin for SimSpin {
             }
             self.last_draw = now;
         }
-        ::std::thread::sleep(Duration::new(0, 100));
+        ::std::thread::sleep(Duration::new(0, 10_000));
         self.update_time = now;
     }
 

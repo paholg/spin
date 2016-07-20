@@ -1,16 +1,11 @@
 extern crate spinny;
 extern crate palette;
 
-use std::time::{Instant, Duration};
-use palette::{Rgb, Gradient};
-
-use spinny::Spin;
-use spinny::sim::glium::SimSpin;
-use spinny::NLEDS;
-
 fn main() {
+    use spinny::sim::glium::SimSpin;
     let mut spinner = SimSpin::new();
 
+    use palette::{Gradient, Rgb};
     let grad = Gradient::new(vec![
         Rgb::new(1.0, 0.0, 0.0),
         Rgb::new(1.0, 1.0, 0.0),
@@ -19,26 +14,20 @@ fn main() {
         Rgb::new(0.0, 0.0, 1.0),
         Rgb::new(1.0, 0.0, 1.0),
         Rgb::new(1.0, 0.0, 0.0),
-        ]);
+    ]);
+
+    use spinny::NLEDS;
     let mut grad_it = grad.take(NLEDS + 1).cycle();
 
-    let mut old = Instant::now();
-
-    let time_per_frame = Duration::from_millis(3);
-
     loop {
-        let now = Instant::now();
-        let elapsed = now.duration_since(old);
-        if elapsed > time_per_frame {
-            for led in spinner.leds() {
-                *led = Rgb::from(grad_it.next().unwrap());
-            }
-            old = now;
+        use spinny::Spin;
+        for led in spinner.leds() {
+            *led = Rgb::from(grad_it.next().unwrap());
         }
 
         spinner.update();
-        // else {
-        //     std::thread::sleep(time_per_frame - elapsed);
-        // }
+
+        use std::time::Duration;
+        ::std::thread::sleep(Duration::from_millis(1));
     }
 }
