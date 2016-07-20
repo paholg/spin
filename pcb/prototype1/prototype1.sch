@@ -448,8 +448,8 @@ $Comp
 L INDUCTOR L1
 U 1 1 575D9F93
 P 6400 6850
-F 0 "L1" V 6300 6850 50  0000 C CNN
-F 1 "1uH 4.9mOhm" V 6500 6850 50  0000 C CNN
+F 0 "L1" V 6500 6850 50  0000 C CNN
+F 1 "1uH 4.9mOhm" V 6350 6850 50  0000 C CNN
 F 2 "spin:SRU1028-10x10-Octogon" H 6400 6850 50  0001 C CNN
 F 3 "http://www.mouser.com/ds/2/54/RU1028-778233.pdf" H 6400 6850 50  0001 C CNN
 F 4 "SRU1028-1R0Y" V 6400 6850 60  0001 C CNN "manf#"
@@ -827,8 +827,6 @@ F 4 "LMK212BJ106KD-T" H 4600 7100 60  0001 C CNN "manf#"
 	1    4600 7100
 	1    0    0    -1  
 $EndComp
-Text Notes -800 5150 0    60   ~ 0
-ADD:\nCrystal
 $Comp
 L +3.3V #PWR020
 U 1 1 5769A055
@@ -1899,8 +1897,6 @@ F 4 "CC0603KRX5R5BB475" H 1800 1700 60  0001 C CNN "manf#"
 $EndComp
 Text GLabel 1550 2150 2    60   Input ~ 0
 OSC_IN
-Text GLabel 1550 2250 2    60   Input ~ 0
-OSC_OUT
 Text Notes 7300 650  0    60   Italic 12
 LED Drivers
 Text Notes 9950 650  0    60   Italic 12
@@ -1920,10 +1916,8 @@ Buttons
 Text Notes 3400 6500 0    60   Italic 12
 Batteries
 NoConn ~ 1550 2350
-Text GLabel 2650 3950 0    60   Input ~ 0
+Text GLabel 2650 3550 1    60   Input ~ 0
 OSC_IN
-Text GLabel 2650 3850 0    60   Input ~ 0
-OSC_OUT
 Text GLabel 1550 5150 2    60   Input ~ 0
 MIC_CLK
 Text GLabel 1550 4250 2    60   Input ~ 0
@@ -2005,7 +1999,7 @@ Text Notes 2850 2100 0    60   Italic 12
 Microphone
 Text Notes 3200 2850 0    60   ~ 0
 Caps near pin 1!
-Text Notes 2800 3350 0    60   Italic 12
+Text Notes 2950 3300 0    60   Italic 12
 Crystal
 $Comp
 L GND #PWR043
@@ -2386,8 +2380,6 @@ Wire Notes Line
 Wire Notes Line
 	3500 550  3500 1950
 Wire Notes Line
-	6450 4700 4050 4700
-Wire Notes Line
 	4050 1950 4050 6350
 Wire Wire Line
 	9950 5250 9950 5050
@@ -2446,8 +2438,6 @@ NoConn ~ 1550 2550
 NoConn ~ 1550 2950
 Wire Wire Line
 	6100 7400 6100 7000
-Wire Wire Line
-	5100 7400 5100 7550
 Connection ~ 5100 7550
 Text Notes 10600 6000 0    60   Italic 12
 String holes
@@ -2730,4 +2720,68 @@ Connection ~ 9400 6050
 Connection ~ 9700 6050
 Connection ~ 10000 6050
 Connection ~ 10300 6050
+$Comp
+L GND #PWR056
+U 1 1 578D6714
+P 2650 3750
+F 0 "#PWR056" H 2650 3500 50  0001 C CNN
+F 1 "GND" H 2650 3600 50  0000 C CNN
+F 2 "" H 2650 3750 50  0000 C CNN
+F 3 "" H 2650 3750 50  0000 C CNN
+	1    2650 3750
+	1    0    0    -1  
+$EndComp
+NoConn ~ 1550 2250
+$Comp
+L ASDMB-12.000MHZ-LC-T U12
+U 1 1 578DFC0C
+P 3100 3600
+F 0 "U12" H 3100 3750 60  0000 C CNN
+F 1 "ASDMB-12.000MHZ-LC-T" H 3350 3400 60  0000 C CNN
+F 2 "spin:ASDMB-12.000MHZ-LC-T" H 3000 3850 60  0001 C CNN
+F 3 "http://www.mouser.com/ds/2/3/ASDMB-29928.pdf" H 3100 3100 60  0001 C CNN
+F 4 "ASDMB-12.000MHZ-LC-T" H 3100 3200 60  0001 C CNN "manf#"
+	1    3100 3600
+	1    0    0    -1  
+$EndComp
+NoConn ~ 3600 3650
+$Comp
+L +3.3V #PWR057
+U 1 1 578E032D
+P 3600 3450
+F 0 "#PWR057" H 3600 3300 50  0001 C CNN
+F 1 "+3.3V" H 3600 3590 50  0000 C CNN
+F 2 "" H 3600 3450 50  0000 C CNN
+F 3 "" H 3600 3450 50  0000 C CNN
+	1    3600 3450
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	3600 3450 3600 3550
+Wire Wire Line
+	3800 3750 2650 3750
+Wire Wire Line
+	2650 3750 2650 3650
+Connection ~ 2650 3750
+Wire Wire Line
+	3800 3450 3600 3450
+Connection ~ 3600 3450
+Wire Notes Line
+	2500 3150 2500 4000
+Wire Notes Line
+	2500 4000 4050 4000
+$Comp
+L C C26
+U 1 1 578E5B6F
+P 3800 3600
+F 0 "C26" H 3825 3700 50  0000 L CNN
+F 1 "10n" H 3825 3500 50  0000 L CNN
+F 2 "Capacitors_SMD:C_0805_HandSoldering" H 3838 3450 50  0001 C CNN
+F 3 "http://www.mouser.com/ds/2/447/UPY-GPHC_X7R_6.3V-to-50V-v12-709413.pdf" H 3800 3600 50  0001 C CNN
+F 4 "CC0805JRX7R0BB103" H 3800 3600 60  0001 C CNN "manf#"
+	1    3800 3600
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	5100 7550 5100 7400
 $EndSCHEMATC

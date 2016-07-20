@@ -1,5 +1,10 @@
 EESchema-DOCLIB  Version 2.0
 #
+$CMP ASDMB-12.000MHZ-LC-T
+D mems oscillator
+K oscillator
+$ENDCMP
+#
 $CMP L3GD20HTR
 D 3 axis gyroscope, +/- 245 dps, +/- 500 dps, +/- 2000 dps
 K gyroscope
