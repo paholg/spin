@@ -6,7 +6,7 @@
 [dependencies]
   # General:
   typenum = "*"
-  # generic-array = "*"
+  generic-array = "*"
 
   # For sim:
   glium = "*"
@@ -14,9 +14,6 @@
   # Temporary:
   rand = "*"
   palette = "*"
-
-[dependencies.generic-array]
-  path = "../../src/generic-array"
 
 # For microcontroller:
 
