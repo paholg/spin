@@ -104,8 +104,8 @@ impl Spin {
         let dt: f32 = dur.as_secs() as f32 + (dur.subsec_nanos() as f32)/1.0e9;
         let dphi = self.omega * dt;
 
-        println!("fps: {:6.1}, omega: {:6.1}, dphi: {:6.2} deg",
-                 1.0/dt, self.omega, dphi * 180. / PI);
+        // println!("fps: {:6.1}, omega: {:6.1}, dphi: {:6.2} deg",
+        //          1.0/dt, self.omega, dphi * 180. / PI);
 
         // Move the disc
         if self.omega.abs() > OMEGA_MAX {
@@ -157,9 +157,27 @@ impl Spin {
                 buf.invalidate();
             }
 
+            let perspective = {
+                let (width, height) = target.get_dimensions();
+                let (xfac, yfac) = if width > height {
+                    (height as f32 / width as f32, 1.0)
+                } else {
+                    (1.0, width as f32 / height as f32)
+                };
+
+                let rad = R0 + LED_SIZE*NLEDS as f32 + SPACE*(NLEDS - 1) as f32;
+                let scale = 0.9;
+                let f = scale / rad;
+
+                [
+                    [xfac * f, 0.0],
+                    [0.0,      yfac * f],
+                ]
+            };
+
             for (buffer, shape) in self.vertex_buffers.iter().zip(self.shapes.iter()) {
                 buffer.write(shape);
-                target.draw(buffer, &indices, &self.program, &glium::uniforms::EmptyUniforms,
+                target.draw(buffer, &indices, &self.program, &uniform!{perspective: perspective},
                             &Default::default()).unwrap();
             }
 
@@ -186,8 +204,10 @@ in vec3 color;
 
 flat out vec3 v_color;
 
+uniform mat2 perspective;
+
 void main() {
-    gl_Position = vec4(position*10, 0.0, 1.0);
+    gl_Position = vec4(perspective * position, 0.0, 1.0);
     v_color = color;
 }
 "#;
