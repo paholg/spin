@@ -4,9 +4,8 @@ use std::{mem, ptr};
 
 use glium;
 
-use palette::Rgb;
-
 use NLEDS;
+use color::Rgb;
 
 // Eventually, we will use dimensioned for real units
 #[allow(non_upper_case_globals)]
@@ -17,13 +16,14 @@ const R0: f32 = 0.2 * mm;
 const LED_SIZE: f32 = 2.8 * mm;
 const SPACE: f32 = 0.2 * mm;
 
-const NVERTS: usize = 720;
 
 const ALPHA0: f32 = 2.0 * PI * 10.0; // rad/s^2
 const OMEGA0: f32 = 0.0;
 const OMEGA_MAX: f32 = 2.0 * PI * 30.0; // rad/s
 
-const DPHIMAX: f32 = 1.0 * PI / 180.0;
+const DPHIMAX: f32 = 2.0 * PI / 180.0;
+
+const NVERTS: usize = (2.0 * PI / DPHIMAX * 4.0) as usize;
 
 pub struct Spin {
     pub leds: [Rgb; NLEDS],
@@ -47,7 +47,7 @@ struct Vertex {
     pub creation_time: Instant,
     pub phi: f32,
     position: [f32; 2],
-    color: [f32; 3],
+    color: [u8; 3],
 }
 implement_vertex!(Vertex, position, color);
 
@@ -57,7 +57,7 @@ impl Vertex {
             phi: phi,
             creation_time: Instant::now(),
             position: [x, y],
-            color: [c.red, c.green, c.blue],
+            color: [c.r, c.g, c.b],
         }
     }
 }
@@ -73,7 +73,7 @@ impl Spin {
             let mut vertex_buffers: [glium::VertexBuffer<Vertex>; NLEDS] = mem::uninitialized();
 
             for (shape, buffer) in shapes.iter_mut().zip(vertex_buffers.iter_mut()) {
-                let new_shape = vec![Vertex::new(0.0, 0.0, 0.0, Rgb::new(0.0, 0.0, 0.0)); NVERTS];
+                let new_shape = vec![Vertex::new(0.0, 0.0, 0.0, Rgb::new(0, 0, 0)); NVERTS];
                 ptr::write(shape, new_shape);
                 let new_buffer = glium::VertexBuffer::dynamic(&display, &shape).unwrap();
                 ptr::write(buffer, new_buffer);
@@ -89,7 +89,7 @@ impl Spin {
             alpha: ALPHA0,
             update_time: Instant::now(),
             last_draw: Instant::now(),
-            leds: [Rgb::new(1.0, 1.0, 1.0); NLEDS],
+            leds: [Rgb::new(255, 255, 255); NLEDS],
 
             display: display,
             program: program,
@@ -104,8 +104,8 @@ impl Spin {
         let dt: f32 = dur.as_secs() as f32 + (dur.subsec_nanos() as f32)/1.0e9;
         let dphi = self.omega * dt;
 
-        // println!("fps: {:6.1}, omega: {:6.1}, dphi: {:6.2} deg",
-        //          1.0/dt, self.omega, dphi * 180. / PI);
+        println!("fps: {:6.1}, omega: {:6.1}, dphi: {:6.2} deg",
+                 1.0/dt, self.omega, dphi * 180. / PI);
 
         // Move the disc
         if self.omega.abs() > OMEGA_MAX {
@@ -136,8 +136,8 @@ impl Spin {
             for i in 0..ntraps {
                 let mini_dphi = dphi / ntraps as f32;
                 let phi = self.phi - mini_dphi*(ntraps - i - 1) as f32;
-                shape.push(Vertex::new(phi, v1*phi.cos(), v1*phi.sin(), led.clone()));
-                shape.push(Vertex::new(phi, v2*phi.cos(), v2*phi.sin(), led.clone()));
+                shape.push(Vertex::new(phi, v1*phi.cos(), v1*phi.sin(), *led));
+                shape.push(Vertex::new(phi, v2*phi.cos(), v2*phi.sin(), *led));
             }
 
         }
@@ -199,6 +199,6 @@ flat in vec3 v_color;
 out vec4 f_color;
 
 void main() {
-    f_color = vec4(v_color, 0.1);
+    f_color = vec4(v_color / 255, 1.0);
 }
 "#;

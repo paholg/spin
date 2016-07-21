@@ -6,23 +6,14 @@
 
 #[macro_use]
 extern crate glium;
-extern crate palette;
+
+extern crate typenum;
+extern crate generic_array;
 // extern crate zinc;
 
 pub mod sim;
 pub use sim::Spin;
 
+pub mod color;
+
 pub const NLEDS: usize = 16;
-
-
-// /// This is a doc comment!
-// pub trait Spin {
-//     fn update(&mut self);
-
-//     fn phi(&self) -> f32;
-//     fn omega(&self) -> f32;
-//     fn alpha(&self) -> f32;
-
-//     fn leds(&mut self) -> &mut [Rgb; NLEDS];
-//     fn get_leds(&self) -> &[Rgb; NLEDS];
-// }

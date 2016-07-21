@@ -1,14 +1,19 @@
 [package]
-  name = "spinny"
+  name = "spin"
   version = "0.1.0"
   authors = ["Paho Lurie-Gregg <paho@paholg.com>"]
 
-# For sim:
 [dependencies]
+  # General:
+  typenum = "*"
+  generic-array = "*"
+
+  # For sim:
   glium = "*"
-  palette = "*"
+
+  # Temporary:
   rand = "*"
-  # sdl2 = "*"
+  palette = "*"
 
 # For microcontroller:
 

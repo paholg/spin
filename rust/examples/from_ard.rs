@@ -1,12 +1,10 @@
-extern crate spinny;
-extern crate palette;
+extern crate spin;
 extern crate rand;
 
 use std::time::Duration;
-use palette::Rgb;
 
-use spinny::Spin;
-use spinny::NLEDS;
+use spin::{Spin, NLEDS};
+use spin::color::Rgb;
 
 use std::thread::sleep;
 
@@ -34,22 +32,22 @@ fn main() {
 
 fn rainbow_double_tick(mut spin: &mut Spin, iters: u64, wait: Duration) {
     for _ in 0..iters {
-        double_tick(&mut spin, Rgb::new_u8(255, 0, 0), wait);
+        double_tick(&mut spin, Rgb::new(255, 0, 0), wait);
     }
     for _ in 0..iters {
-        double_tick(&mut spin, Rgb::new_u8(255, 255, 0), wait);
+        double_tick(&mut spin, Rgb::new(255, 255, 0), wait);
     }
     for _ in 0..iters {
-        double_tick(&mut spin, Rgb::new_u8(0, 255, 0), wait);
+        double_tick(&mut spin, Rgb::new(0, 255, 0), wait);
     }
     for _ in 0..iters {
-        double_tick(&mut spin, Rgb::new_u8(0, 255, 255), wait);
+        double_tick(&mut spin, Rgb::new(0, 255, 255), wait);
     }
     for _ in 0..iters {
-        double_tick(&mut spin, Rgb::new_u8(0, 0, 255), wait);
+        double_tick(&mut spin, Rgb::new(0, 0, 255), wait);
     }
     for _ in 0..iters {
-        double_tick(&mut spin, Rgb::new_u8(255, 0, 255), wait);
+        double_tick(&mut spin, Rgb::new(255, 0, 255), wait);
     }
 }
 
@@ -76,22 +74,22 @@ fn double_tick(spin: &mut Spin, color: Rgb, wait: Duration) {
 
 fn rainbow_bounce(mut spin: &mut Spin, iters: u64, wait: Duration) {
     for _ in 0..iters {
-        bounce(&mut spin, Rgb::new_u8(255, 0, 0), wait);
+        bounce(&mut spin, Rgb::new(255, 0, 0), wait);
     }
     for _ in 0..iters {
-        bounce(&mut spin, Rgb::new_u8(255, 255, 0), wait);
+        bounce(&mut spin, Rgb::new(255, 255, 0), wait);
     }
     for _ in 0..iters {
-        bounce(&mut spin, Rgb::new_u8(0, 255, 0), wait);
+        bounce(&mut spin, Rgb::new(0, 255, 0), wait);
     }
     for _ in 0..iters {
-        bounce(&mut spin, Rgb::new_u8(0, 255, 255), wait);
+        bounce(&mut spin, Rgb::new(0, 255, 255), wait);
     }
     for _ in 0..iters {
-        bounce(&mut spin, Rgb::new_u8(0, 0, 255), wait);
+        bounce(&mut spin, Rgb::new(0, 0, 255), wait);
     }
     for _ in 0..iters {
-        bounce(&mut spin, Rgb::new_u8(255, 0, 255), wait);
+        bounce(&mut spin, Rgb::new(255, 0, 255), wait);
     }
 }
 
@@ -137,7 +135,7 @@ fn rand_in_range(spin: &mut Spin, low: usize, high: usize) {
             let r: u8 = rng.gen_range(0, 2) * 255;
             let g: u8 = rng.gen_range(0, 2) * 255;
             let b: u8 = rng.gen_range(0, 2) * 255;
-            spin.leds[i] = Rgb::new_u8(r, g, b);
+            spin.leds[i] = Rgb::new(r, g, b);
         }
     }
     sleep(Duration::new(0, 150_000));
