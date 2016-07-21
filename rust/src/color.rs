@@ -25,15 +25,22 @@ impl Rgb {
 
 
 use generic_array::{GenericArray, ArrayLength};
+use typenum::NonZero;
 
 #[derive(Clone, Debug)]
-pub struct Gradient<N: ArrayLength<Rgb>> {
-    colors: GenericArray<Rgb, N>,
+pub struct Gradient<N: NonZero + ArrayLength<(f32, Rgb)>> {
+    data: GenericArray<(f32, Rgb), N>,
 }
 
-impl<N: ArrayLength<Rgb>> Gradient<N> {
-    pub fn new(colors: GenericArray<Rgb, N>) -> Gradient<N> {
-        Gradient { colors: colors }
+impl<N> Gradient<N> where N: NonZero + ArrayLength<Rgb> + ArrayLength<(f32, Rgb)> {
+    pub fn new(colors: GenericArray<Rgb, N>) ->  Gradient<N> {
+        let mut points = colors.map(|&c| (0.0, c));
+        let step = 1.0 / (points.len() - 1) as f32;
+        for (i, point) in points.iter_mut().enumerate() {
+            point.0 = i as f32 * step;
+        }
+
+        Gradient { data: points }
     }
 }
 
