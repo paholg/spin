@@ -2,8 +2,8 @@ extern crate spinny;
 extern crate palette;
 
 fn main() {
-    use spinny::sim::glium::SimSpin;
-    let mut spinner = SimSpin::new();
+    use spinny::Spin;
+    let mut spinner = Spin::new();
 
     use palette::{Gradient, Rgb};
     let grad = Gradient::new(vec![
@@ -20,8 +20,7 @@ fn main() {
     let mut grad_it = grad.take(NLEDS + 1).cycle();
 
     loop {
-        use spinny::Spin;
-        for led in spinner.leds() {
+        for led in spinner.leds.iter_mut() {
             *led = Rgb::from(grad_it.next().unwrap());
         }
 
