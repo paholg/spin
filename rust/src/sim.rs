@@ -254,3 +254,10 @@ void main() {
     f_color = vec4(v_color / 255, 1.0);
 }
 "#;
+
+use rand::XorShiftRng;
+pub fn rng() -> XorShiftRng {
+    let mut rng = ::rand::thread_rng();
+    use rand::{SeedableRng, Rng};
+    XorShiftRng::from_seed(rng.gen())
+}

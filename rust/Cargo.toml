@@ -4,7 +4,6 @@
   authors = ["Paho Lurie-Gregg <paho@paholg.com>"]
 
 [features]
-  no_std = ["approx/no_std", "glium"]
   sim = ["glium"]
   default = ["sim"]
 
@@ -12,14 +11,14 @@
 [dependencies]
   typenum = "*"
   generic-array = "*"
-  rand = { git = "https://github.com/jethrogb/rand", branch = "core", default-features = false }
-
+  # rand = { git = "https://github.com/jethrogb/rand", branch = "core", default-features = false }
+  rand = "*"
   # Sim dependencies
   glium = { version = "*", optional = true }
 
 
   # Maybe? dependencies
-  approx = { git = "https://github.com/paholg/approx", branch = "no_std" }
+  # approx = { git = "https://github.com/paholg/approx", branch = "no_std" }
 
 
 # For microcontroller:

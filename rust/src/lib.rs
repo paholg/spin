@@ -26,7 +26,7 @@ pub use sim as spin;
 #[cfg(not(feature = "sim"))]
 pub mod spin;
 
-pub use spin::Spin;
+pub use spin::{Spin, rng};
 
 pub mod color;
 

@@ -26,3 +26,9 @@ impl Spin {
     }
 }
 
+
+use rand::XorShiftRng;
+pub fn rng() -> XorShiftRng {
+    XorShiftRng::new_unseeded()
+}
+

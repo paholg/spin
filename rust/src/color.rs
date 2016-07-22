@@ -35,6 +35,10 @@ impl Rgb {
 use generic_array::{GenericArray, ArrayLength};
 use typenum::NonZero;
 
+pub trait Len: Clone + NonZero + ArrayLength<(f32, Rgb)> + ArrayLength<Rgb> {}
+
+impl<T> Len for T where T: Clone + NonZero + ArrayLength<(f32, Rgb)> + ArrayLength<Rgb> {}
+
 /// A linear interpolation between colors.
 ///
 /// It's used to smoothly transition between a series of colors, that can be either evenly spaced
@@ -42,11 +46,11 @@ use typenum::NonZero;
 /// possible to iterate over a number of evenly spaced points using the `take` method. Any point
 /// outside the domain of the gradient will have the same color as the closest control point.
 #[derive(Clone, Debug)]
-pub struct Gradient<N: NonZero + ArrayLength<(f32, Rgb)>> {
+pub struct Gradient<N: Len> {
     data: GenericArray<(f32, Rgb), N>,
 }
 
-impl<N> Gradient<N> where N: NonZero + ArrayLength<Rgb> + ArrayLength<(f32, Rgb)> {
+impl<N> Gradient<N> where N: Len {
     /// Create a gradient of evenly spaced colors with the domain [0.0, 1.0].  There must be at
     /// least one color.
     pub fn new(colors: GenericArray<Rgb, N>) ->  Gradient<N> {
@@ -137,7 +141,7 @@ impl<N> Gradient<N> where N: NonZero + ArrayLength<Rgb> + ArrayLength<(f32, Rgb)
 }
 
 #[derive(Clone, Debug)]
-pub struct Take<'a, N> where N: 'a + NonZero + ArrayLength<Rgb> + ArrayLength<(f32, Rgb)> {
+pub struct Take<'a, N> where N: 'a + Len {
     grad: &'a Gradient<N>,
 
     num: usize,
@@ -147,7 +151,7 @@ pub struct Take<'a, N> where N: 'a + NonZero + ArrayLength<Rgb> + ArrayLength<(f
     step: f32,
 }
 
-impl<'a, N> Iterator for Take<'a, N> where N: 'a + NonZero + ArrayLength<Rgb> + ArrayLength<(f32, Rgb)> {
+impl<'a, N> Iterator for Take<'a, N> where N: 'a + Len {
     type Item = Rgb;
 
     fn next(&mut self) -> Option<Rgb> {
