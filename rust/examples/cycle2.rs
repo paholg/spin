@@ -31,7 +31,7 @@ fn main() {
     let cool = Gradient::new(arr![Rgb; CYAN, PURPLE, MAGENTA, NAVY, TEAL]);
     let forest = Gradient::new(arr![Rgb; FOREST, CYAN, BLUE, NAVY, DKGREEN]);
 
-    let grads: &[&GradientSlice] = &[&rainbow, &hot, &cool, &forest];
+    let grads = arr![&GradientSlice; &rainbow, &hot, &cool, &forest];
 
     let funs = [filled, bounce, rand_vary, double_tick];
 
