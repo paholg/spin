@@ -92,7 +92,7 @@ impl Spin {
             alpha: ALPHA0,
             update_time: Instant::now(),
             last_draw: Instant::now(),
-            leds: [Rgb::new(255, 255, 255); NLEDS],
+            leds: [Rgb::new(0, 0, 0); NLEDS],
 
             display: display,
             program: program,
@@ -169,7 +169,7 @@ impl Spin {
                 };
 
                 let rad = R0 + LED_SIZE*NLEDS as f32 + SPACE*(NLEDS - 1) as f32;
-                let scale = 0.9;
+                let scale = 1.0;
                 let f = scale / rad;
 
                 [

@@ -111,10 +111,6 @@ fn in_and_out(spin: &mut Spin, rng: &mut XorShiftRng, grad: &GradientSlice) {
 
     let (min, max) = grad.domain();
 
-    for led in &mut spin.leds {
-        *led = BLACK;
-    }
-
     for _ in 0..4 {
         // fill in to out
         spin.sleep_us(sleep_time * niters as u32);
