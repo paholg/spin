@@ -33,7 +33,7 @@ fn main() {
 
     let grads = arr![&GradientSlice; &rainbow, &hot, &cool, &forest];
 
-    let funs = [filled, bounce, rand_vary, double_tick];
+    let funs = [filled, bounce, in_and_out, double_tick];
 
     let mut rng = spin::rng();
 
@@ -63,20 +63,20 @@ fn bounce(spin: &mut Spin, _: &mut XorShiftRng, grad: &GradientSlice) {
         spin.sleep_ms(2);
 
         for i in 1..NLEDS {
-            spin.leds[i-1] = Rgb::default();
+            spin.leds[i-1] = BLACK;
             spin.leds[i] = color;
             spin.update();
             spin.sleep_ms(2);
         }
 
         for i in (0..NLEDS-1).rev() {
-            spin.leds[i+1] = Rgb::default();
+            spin.leds[i+1] = BLACK;
             spin.leds[i] = color;
             spin.update();
             spin.sleep_ms(2);
         }
 
-        spin.leds[1] = Rgb::default();
+        spin.leds[1] = BLACK;
     }
 }
 
@@ -89,8 +89,8 @@ fn double_tick(spin: &mut Spin, _: &mut XorShiftRng, grad: &GradientSlice) {
         spin.sleep_ms(2);
 
         for i in 1..NLEDS/2 {
-            spin.leds[i-1] = Rgb::default();
-            spin.leds[NLEDS-i] = Rgb::default();
+            spin.leds[i-1] = BLACK;
+            spin.leds[NLEDS-i] = BLACK;
 
             spin.leds[i] = color;
             spin.leds[NLEDS-i-1] = color;
@@ -99,8 +99,8 @@ fn double_tick(spin: &mut Spin, _: &mut XorShiftRng, grad: &GradientSlice) {
             spin.sleep_ms(2);
         }
 
-        spin.leds[NLEDS/2-1] = Rgb::default();
-        spin.leds[NLEDS/2] = Rgb::default();
+        spin.leds[NLEDS/2-1] = BLACK;
+        spin.leds[NLEDS/2] = BLACK;
     }
 }
 
@@ -116,7 +116,7 @@ fn rand_in_range(spin: &mut Spin, rng: &mut XorShiftRng, grad: &GradientSlice, l
 
     {
         if blank {
-            spin.leds[i] = Rgb::default();
+            spin.leds[i] = BLACK;
         }
         else {
             let (min, max) = grad.domain();
@@ -127,48 +127,68 @@ fn rand_in_range(spin: &mut Spin, rng: &mut XorShiftRng, grad: &GradientSlice, l
     spin.update();
 }
 
-fn rand_vary(mut spin: &mut Spin, mut rng: &mut XorShiftRng, grad: &GradientSlice) {
-    let n_iters: u8 = 100;
+fn in_and_out(spin: &mut Spin, rng: &mut XorShiftRng, grad: &GradientSlice) {
+    let niters = 100;
+
+    let sleep_time = 150; // us
+
+    let (min, max) = grad.domain();
+
+    for led in &mut spin.leds {
+        *led = BLACK;
+    }
 
     for _ in 0..4 {
-        // clear
-        for led in spin.leds.iter_mut() {
-            *led = Rgb::default();
-        }
-        spin.update();
-
-        // fill from in to out
-        for high in 1..NLEDS + 1 {
-            for _ in 0..n_iters {
-                rand_in_range(&mut spin, &mut rng, &grad, 0, high);
+        // fill in to out
+        spin.sleep_us(sleep_time * niters as u32);
+        for i in 1..NLEDS+1 {
+            for _ in 0..niters {
+                let idx = rng.gen_range(0, i);
+                let blank = rng.gen();
+                spin.leds[idx] = if blank { BLACK } else { grad.get(rng.gen_range(min, max)) };
+                spin.update();
+                spin.sleep_us(sleep_time);
             }
         }
 
-        // unfill from in to out
-        for low in 0..NLEDS {
-            if low > 0 {
-                spin.leds[low-1] = Rgb::default();
+        // wipe in to out
+        for i in 0..NLEDS {
+            if i > 0 {
+                spin.leds[i-1] = BLACK;
             }
-            for _ in 0..n_iters {
-                rand_in_range(&mut spin, &mut rng, &grad, low, NLEDS);
+
+            for _ in 0..niters {
+                let idx = rng.gen_range(i, NLEDS);
+                let blank = rng.gen();
+                spin.leds[idx] = if blank { BLACK } else { grad.get(rng.gen_range(min, max)) };
+                spin.update();
+                spin.sleep_us(sleep_time);
+            }
+        }
+        spin.sleep_us(sleep_time * niters as u32);
+
+        // fill out to in
+        for i in (0..NLEDS).rev() {
+            for _ in 0..niters {
+                let idx = rng.gen_range(i, NLEDS);
+                let blank = rng.gen();
+                spin.leds[idx] = if blank { BLACK } else { grad.get(rng.gen_range(min, max)) };
+                spin.update();
+                spin.sleep_us(sleep_time);
             }
         }
 
-        // fill from out to in
-        for low in (0..NLEDS-1).rev() {
-            for _ in 0..n_iters {
-                rand_in_range(&mut spin, &mut rng, &grad, low, NLEDS);
+        // wipe out to in
+        for i in (1..NLEDS+1).rev() {
+            for _ in 0..niters {
+                let idx = rng.gen_range(0, i);
+                let blank = rng.gen();
+                spin.leds[idx] = if blank { BLACK } else { grad.get(rng.gen_range(min, max)) };
+                spin.update();
+                spin.sleep_us(sleep_time);
             }
+            spin.leds[i-1] = BLACK;
         }
-
-        // unfill from out to in
-        for high in (0..NLEDS).rev() {
-            if high < NLEDS {
-                spin.leds[high] = Rgb::default();
-            }
-            for _ in 0..n_iters {
-                rand_in_range(&mut spin, &mut rng, &grad, 0, high);
-            }
-        }
+        spin.sleep_us(sleep_time * niters as u32);
     }
 }
