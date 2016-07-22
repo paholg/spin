@@ -25,6 +25,9 @@ const DPHIMAX: f32 = 2.0 * PI / 180.0;
 
 const NVERTS: usize = (2.0 * PI / DPHIMAX * 4.0) as usize;
 
+const FPS: f32 = 60.0;
+const FRAME_TIME_NS: u32 = (1.0e9/FPS) as u32;
+
 pub struct Spin {
     pub leds: [Rgb; NLEDS],
 
@@ -104,8 +107,8 @@ impl Spin {
         let dt: f32 = dur.as_secs() as f32 + (dur.subsec_nanos() as f32)/1.0e9;
         let dphi = self.omega * dt;
 
-        // println!("fps: {:6.1}, omega: {:6.1}, dphi: {:6.2} deg",
-        //          1.0/dt, self.omega, dphi * 180. / PI);
+        println!("fps: {:6.1}, omega: {:6.1}, dphi: {:6.2} deg",
+                 1.0/dt, self.omega, dphi * 180. / PI);
 
         // Move the disc
         if self.omega.abs() > OMEGA_MAX {
@@ -142,7 +145,7 @@ impl Spin {
 
         }
 
-        let frame_dur = Duration::new(0, (1.0e9/60.0) as u32);
+        let frame_dur = Duration::new(0, FRAME_TIME_NS);
         let since_last_draw = now.duration_since(self.last_draw);
 
         if since_last_draw > frame_dur {
@@ -193,6 +196,35 @@ impl Spin {
         ::std::thread::sleep(Duration::new(0, 10_000));
         self.update_time = now;
     }
+
+    pub fn sleep_us(&mut self, us: u32) {
+        let s = us as u64 / 1_000_000;
+        let ns = (us % 1_000_000) * 1_000;
+        let duration = Duration::new(s, ns);
+        self.sleep(duration);
+    }
+
+    pub fn sleep_ms(&mut self, ms: u32) {
+        self.sleep(Duration::from_millis(ms.into()));
+    }
+
+    pub fn sleep_s(&mut self, s: u32) {
+        self.sleep(Duration::new(s.into(), 0));
+    }
+
+    fn sleep(&mut self, dur: Duration) {
+        let begin = Instant::now();
+        let frame_dur = Duration::new(0, FRAME_TIME_NS);
+        while dur > begin.elapsed() + frame_dur {
+            self.update();
+            ::std::thread::sleep(frame_dur);
+        }
+
+        if dur > begin.elapsed() {
+            ::std::thread::sleep(dur - begin.elapsed())
+        }
+    }
+
 }
 
 

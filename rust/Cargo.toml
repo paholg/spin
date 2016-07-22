@@ -3,17 +3,23 @@
   version = "0.1.0"
   authors = ["Paho Lurie-Gregg <paho@paholg.com>"]
 
+[features]
+  no_std = ["approx/no_std", "glium"]
+  sim = ["glium", "rand"]
+
+# General dependencies
 [dependencies]
-  # General:
   typenum = "*"
   generic-array = "*"
 
-  # For sim:
-  glium = "*"
+  # Sim dependencies
+  glium = { version = "*", optional = true }
+  # Temporary dependencies
+  rand = { version = "*", optional = true }
 
-  # Temporary:
-  rand = "*"
-  palette = "*"
+  # Maybe? dependencies
+  approx = { git = "https://github.com/paholg/approx", branch = "no_std" }
+
 
 # For microcontroller:
 

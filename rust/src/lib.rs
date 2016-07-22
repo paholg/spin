@@ -1,18 +1,31 @@
 //! This is a module comment!
 
-// #![feature(plugin)]
-// #![no_std]
-// #![plugin(macro_zinc)]
 
-#[macro_use]
-extern crate glium;
+#![cfg_attr(not(feature = "sim"), no_std)]
+// #![cfg_attr(not(feature = "sim"), feature(core_float))]
 
 extern crate typenum;
 extern crate generic_array;
+
+// #[cfg(not(feature = "sim"))]
+// pub use core as std;
+
+#[macro_use]
+#[cfg(feature = "sim")]
+extern crate glium;
+
 // extern crate zinc;
 
+#[cfg(feature = "sim")]
 pub mod sim;
-pub use sim::Spin;
+#[cfg(feature = "sim")]
+pub use sim as spin;
+
+#[cfg(not(feature = "sim"))]
+pub mod spin;
+// #[cfg(not(feature = "sim"))]
+
+pub use spin::Spin;
 
 pub mod color;
 

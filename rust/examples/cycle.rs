@@ -1,12 +1,8 @@
 extern crate spin;
 extern crate rand;
 
-use std::time::Duration;
-
 use spin::{Spin, NLEDS};
 use spin::color::Rgb;
-
-use std::thread::sleep;
 
 fn main() {
     let mut spinner = Spin::new();
@@ -18,44 +14,44 @@ fn main() {
 
         for i in 1..6 {
             for _ in 0..5 {
-                rainbow_bounce(&mut spinner, 7/i, Duration::from_millis(i));
+                rainbow_bounce(&mut spinner, 7/i, i);
             }
         }
 
         for i in 1..6 {
             for _ in 0..5 {
-                rainbow_double_tick(&mut spinner, 20/i, Duration::from_millis(i));
+                rainbow_double_tick(&mut spinner, 20/i, i);
             }
         }
     }
 }
 
-fn rainbow_double_tick(mut spin: &mut Spin, iters: u64, wait: Duration) {
+fn rainbow_double_tick(mut spin: &mut Spin, iters: u32, wait_ms: u32) {
     for _ in 0..iters {
-        double_tick(&mut spin, Rgb::new(255, 0, 0), wait);
+        double_tick(&mut spin, Rgb::new(255, 0, 0), wait_ms);
     }
     for _ in 0..iters {
-        double_tick(&mut spin, Rgb::new(255, 255, 0), wait);
+        double_tick(&mut spin, Rgb::new(255, 255, 0), wait_ms);
     }
     for _ in 0..iters {
-        double_tick(&mut spin, Rgb::new(0, 255, 0), wait);
+        double_tick(&mut spin, Rgb::new(0, 255, 0), wait_ms);
     }
     for _ in 0..iters {
-        double_tick(&mut spin, Rgb::new(0, 255, 255), wait);
+        double_tick(&mut spin, Rgb::new(0, 255, 255), wait_ms);
     }
     for _ in 0..iters {
-        double_tick(&mut spin, Rgb::new(0, 0, 255), wait);
+        double_tick(&mut spin, Rgb::new(0, 0, 255), wait_ms);
     }
     for _ in 0..iters {
-        double_tick(&mut spin, Rgb::new(255, 0, 255), wait);
+        double_tick(&mut spin, Rgb::new(255, 0, 255), wait_ms);
     }
 }
 
-fn double_tick(spin: &mut Spin, color: Rgb, wait: Duration) {
+fn double_tick(spin: &mut Spin, color: Rgb, wait_ms: u32) {
     spin.leds[0] = color;
     spin.leds[NLEDS-1] = color;
     spin.update();
-    sleep(wait);
+    spin.sleep_ms(wait_ms);
 
     for i in 1..NLEDS/2 {
         spin.leds[i-1] = Rgb::default();
@@ -65,51 +61,51 @@ fn double_tick(spin: &mut Spin, color: Rgb, wait: Duration) {
         spin.leds[NLEDS-i-1] = color;
 
         spin.update();
-        sleep(wait);
+        spin.sleep_ms(wait_ms);
     }
 
     spin.leds[NLEDS/2-1] = Rgb::default();
     spin.leds[NLEDS/2] = Rgb::default();
 }
 
-fn rainbow_bounce(mut spin: &mut Spin, iters: u64, wait: Duration) {
+fn rainbow_bounce(mut spin: &mut Spin, iters: u32, wait_ms: u32) {
     for _ in 0..iters {
-        bounce(&mut spin, Rgb::new(255, 0, 0), wait);
+        bounce(&mut spin, Rgb::new(255, 0, 0), wait_ms);
     }
     for _ in 0..iters {
-        bounce(&mut spin, Rgb::new(255, 255, 0), wait);
+        bounce(&mut spin, Rgb::new(255, 255, 0), wait_ms);
     }
     for _ in 0..iters {
-        bounce(&mut spin, Rgb::new(0, 255, 0), wait);
+        bounce(&mut spin, Rgb::new(0, 255, 0), wait_ms);
     }
     for _ in 0..iters {
-        bounce(&mut spin, Rgb::new(0, 255, 255), wait);
+        bounce(&mut spin, Rgb::new(0, 255, 255), wait_ms);
     }
     for _ in 0..iters {
-        bounce(&mut spin, Rgb::new(0, 0, 255), wait);
+        bounce(&mut spin, Rgb::new(0, 0, 255), wait_ms);
     }
     for _ in 0..iters {
-        bounce(&mut spin, Rgb::new(255, 0, 255), wait);
+        bounce(&mut spin, Rgb::new(255, 0, 255), wait_ms);
     }
 }
 
-fn bounce(spin: &mut Spin, color: Rgb, wait: Duration) {
+fn bounce(spin: &mut Spin, color: Rgb, wait_ms: u32) {
     spin.leds[0] = color;
     spin.update();
-    sleep(wait);
+    spin.sleep_ms(wait_ms);
 
     for i in 1..NLEDS {
         spin.leds[i-1] = Rgb::default();
         spin.leds[i] = color;
         spin.update();
-        sleep(wait);
+        spin.sleep_ms(wait_ms);
     }
 
     for i in (0..NLEDS-1).rev() {
         spin.leds[i+1] = Rgb::default();
         spin.leds[i] = color;
         spin.update();
-        sleep(wait);
+        spin.sleep_ms(wait_ms);
     }
 
     spin.leds[1] = Rgb::default();
@@ -138,7 +134,7 @@ fn rand_in_range(spin: &mut Spin, low: usize, high: usize) {
             spin.leds[i] = Rgb::new(r, g, b);
         }
     }
-    sleep(Duration::new(0, 150_000));
+    spin.sleep_us(150);
     spin.update();
 }
 
