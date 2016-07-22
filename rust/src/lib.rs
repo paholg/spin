@@ -6,9 +6,11 @@
 
 extern crate typenum;
 extern crate generic_array;
+extern crate rand;
 
-// #[cfg(not(feature = "sim"))]
-// pub use core as std;
+#[cfg(not(feature = "sim"))]
+#[allow(private_in_public)]
+pub use core as std;
 
 #[macro_use]
 #[cfg(feature = "sim")]
@@ -23,7 +25,6 @@ pub use sim as spin;
 
 #[cfg(not(feature = "sim"))]
 pub mod spin;
-// #[cfg(not(feature = "sim"))]
 
 pub use spin::Spin;
 

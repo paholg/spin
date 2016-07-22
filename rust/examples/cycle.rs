@@ -3,13 +3,15 @@ extern crate rand;
 
 use spin::{Spin, NLEDS};
 use spin::color::Rgb;
+use rand::{XorShiftRng, Rng};
 
 fn main() {
     let mut spinner = Spin::new();
 
+    let mut rng = XorShiftRng::new_unseeded();
     loop {
         for _ in 0..8 {
-            rand_vary(&mut spinner);
+            rand_vary(&mut spinner, &mut rng);
         }
 
         for i in 1..6 {
@@ -112,9 +114,7 @@ fn bounce(spin: &mut Spin, color: Rgb, wait_ms: u32) {
 }
 
 
-fn rand_in_range(spin: &mut Spin, low: usize, high: usize) {
-    use rand::Rng;
-    let mut rng = ::rand::thread_rng();
+fn rand_in_range(spin: &mut Spin, rng: &mut XorShiftRng, low: usize, high: usize) {
     let i: usize = if low >= high {
         low
     } else {
@@ -138,7 +138,7 @@ fn rand_in_range(spin: &mut Spin, low: usize, high: usize) {
     spin.update();
 }
 
-fn rand_vary(mut spin: &mut Spin) {
+fn rand_vary(mut spin: &mut Spin, mut rng: &mut XorShiftRng) {
     let n_iters: u8 = 100;
 
     // clear
@@ -150,7 +150,7 @@ fn rand_vary(mut spin: &mut Spin) {
     // fill from in to out
     for high in 1..NLEDS + 1 {
         for _ in 0..n_iters {
-            rand_in_range(&mut spin, 0, high);
+            rand_in_range(&mut spin, &mut rng, 0, high);
         }
     }
 
@@ -160,14 +160,14 @@ fn rand_vary(mut spin: &mut Spin) {
             spin.leds[low-1] = Rgb::default();
         }
         for _ in 0..n_iters {
-            rand_in_range(&mut spin, low, NLEDS);
+            rand_in_range(&mut spin, &mut rng, low, NLEDS);
         }
     }
 
     // fill from out to in
     for low in (0..NLEDS-1).rev() {
         for _ in 0..n_iters {
-            rand_in_range(&mut spin, low, NLEDS);
+            rand_in_range(&mut spin, &mut rng, low, NLEDS);
         }
     }
 
@@ -177,7 +177,7 @@ fn rand_vary(mut spin: &mut Spin) {
             spin.leds[high] = Rgb::default();
         }
         for _ in 0..n_iters {
-            rand_in_range(&mut spin, 0, high);
+            rand_in_range(&mut spin, &mut rng, 0, high);
         }
     }
 }

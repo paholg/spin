@@ -5,17 +5,17 @@
 
 [features]
   no_std = ["approx/no_std", "glium"]
-  sim = ["glium", "rand"]
+  sim = ["glium"]
 
 # General dependencies
 [dependencies]
   typenum = "*"
   generic-array = "*"
+  rand = { git = "https://github.com/jethrogb/rand", branch = "core", default-features = false }
 
   # Sim dependencies
   glium = { version = "*", optional = true }
-  # Temporary dependencies
-  rand = { version = "*", optional = true }
+
 
   # Maybe? dependencies
   approx = { git = "https://github.com/paholg/approx", branch = "no_std" }

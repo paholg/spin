@@ -107,8 +107,8 @@ impl Spin {
         let dt: f32 = dur.as_secs() as f32 + (dur.subsec_nanos() as f32)/1.0e9;
         let dphi = self.omega * dt;
 
-        println!("fps: {:6.1}, omega: {:6.1}, dphi: {:6.2} deg",
-                 1.0/dt, self.omega, dphi * 180. / PI);
+        // println!("fps: {:6.1}, omega: {:6.1}, dphi: {:6.2} deg",
+        //          1.0/dt, self.omega, dphi * 180. / PI);
 
         // Move the disc
         if self.omega.abs() > OMEGA_MAX {
