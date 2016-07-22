@@ -6,6 +6,7 @@
 [features]
   no_std = ["approx/no_std", "glium"]
   sim = ["glium"]
+  default = ["sim"]
 
 # General dependencies
 [dependencies]
