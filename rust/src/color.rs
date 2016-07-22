@@ -49,17 +49,6 @@ pub struct Gradient<N: Len> {
     data: GenericArray<(f32, Rgb), N>,
 }
 
-#[derive(Debug)]
-pub struct GradientSlice {
-    data: [(f32, Rgb)],
-}
-
-// impl GradientBorrowed {
-//     pub fn new<'a, N: Len>(grad: Gradient<N>) -> &'a GradientBorrowed {
-//         &GradientBorrowed { data: *grad.data }
-//     }
-// }
-
 use std::ops::Deref;
 impl<N: Len> Deref for Gradient<N> {
     type Target = GradientSlice;
@@ -89,6 +78,11 @@ impl<N> Gradient<N> where N: Len {
         // fixme: ensure colors is sorted
         Gradient { data: colors }
     }
+}
+
+#[derive(Debug)]
+pub struct GradientSlice {
+    data: [(f32, Rgb)],
 }
 
 impl GradientSlice {
