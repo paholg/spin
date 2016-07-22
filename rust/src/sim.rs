@@ -111,7 +111,7 @@ impl Spin {
         //          1.0/dt, self.omega, dphi * 180. / PI);
 
         // Move the disc
-        if self.omega.abs() > OMEGA_MAX {
+        if self.omega.abs() > OMEGA_MAX && self.omega.signum() != self.alpha.signum() {
             self.alpha = -self.alpha;
         }
 
