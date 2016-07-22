@@ -104,29 +104,6 @@ fn double_tick(spin: &mut Spin, _: &mut XorShiftRng, grad: &GradientSlice) {
     }
 }
 
-
-fn rand_in_range(spin: &mut Spin, rng: &mut XorShiftRng, grad: &GradientSlice, low: usize, high: usize) {
-    let i: usize = if low >= high {
-        low
-    } else {
-        rng.gen_range(low, high)
-    };
-
-    let blank: bool = rng.gen();
-
-    {
-        if blank {
-            spin.leds[i] = BLACK;
-        }
-        else {
-            let (min, max) = grad.domain();
-            spin.leds[i] = grad.get(rng.gen_range(min, max));
-        }
-    }
-    spin.sleep_us(150);
-    spin.update();
-}
-
 fn in_and_out(spin: &mut Spin, rng: &mut XorShiftRng, grad: &GradientSlice) {
     let niters = 100;
 

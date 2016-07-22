@@ -187,7 +187,7 @@ impl Spin {
             target.finish().unwrap();
             for ev in self.display.poll_events() {
                 match ev {
-                    glium::glutin::Event::Closed => return,
+                    glium::glutin::Event::Closed => ::std::process::exit(0),
                     _ => (),
                 }
             }
