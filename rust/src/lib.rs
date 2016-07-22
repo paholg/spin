@@ -2,7 +2,7 @@
 
 
 #![cfg_attr(not(feature = "sim"), no_std)]
-// #![cfg_attr(not(feature = "sim"), feature(core_float))]
+#![cfg_attr(not(feature = "sim"), feature(core_float))]
 
 extern crate typenum;
 extern crate generic_array;

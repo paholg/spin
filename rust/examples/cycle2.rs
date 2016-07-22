@@ -5,7 +5,7 @@ extern crate generic_array;
 extern crate typenum;
 
 use spin::{Spin, NLEDS};
-use spin::color::{Rgb, Gradient, Len};
+use spin::color::{Rgb, Gradient, GradientSlice};
 use rand::{XorShiftRng, Rng};
 
 const WHITE:   Rgb = Rgb { r: 255, g: 255, b: 255 };
@@ -28,24 +28,23 @@ fn main() {
 
     let rainbow = Gradient::new(arr![Rgb; RED, YELLOW, GREEN, CYAN, BLUE, MAGENTA]);
     let hot = Gradient::new(arr![Rgb; BLACK, RED, YELLOW, WHITE, YELLOW, RED]);
-    let cool = Gradient::new(arr![Rgb; CYAN, PURPLE, MAGENTA, NAVY, PURPLE, TEAL]);
-    let forest = Gradient::new(arr![Rgb; FOREST, CYAN, BLUE, NAVY, DKGREEN, FOREST]);
+    let cool = Gradient::new(arr![Rgb; CYAN, PURPLE, MAGENTA, NAVY, TEAL]);
+    let forest = Gradient::new(arr![Rgb; FOREST, CYAN, BLUE, NAVY, DKGREEN]);
 
-    let grads = [&rainbow, &hot, &cool, &forest];
+    let grads: &[&GradientSlice] = &[&rainbow, &hot, &cool, &forest];
 
     let funs = [filled, bounce, rand_vary, double_tick];
 
     let mut rng = spin::rng();
 
     loop {
-        // rand_vary(&mut spinner, &mut rng, &forest);
         let grad = grads[rng.gen_range(0, grads.len())];
         let fun = funs[rng.gen_range(0, funs.len())];
         fun(&mut spinner, &mut rng, grad);
     }
 }
 
-fn filled<N: Len>(spin: &mut Spin, _: &mut XorShiftRng, grad: &Gradient<N>) {
+fn filled(spin: &mut Spin, _: &mut XorShiftRng, grad: &GradientSlice) {
     for (i, color) in grad.take(NLEDS + 1).cycle().take(50_000).enumerate() {
         let index = i % NLEDS;
         spin.leds[index] = color;
@@ -57,7 +56,7 @@ fn filled<N: Len>(spin: &mut Spin, _: &mut XorShiftRng, grad: &Gradient<N>) {
     }
 }
 
-fn bounce<N: Len>(spin: &mut Spin, _: &mut XorShiftRng, grad: &Gradient<N>) {
+fn bounce(spin: &mut Spin, _: &mut XorShiftRng, grad: &GradientSlice) {
     for color in grad.take(100) {
         spin.leds[0] = color;
         spin.update();
@@ -82,7 +81,7 @@ fn bounce<N: Len>(spin: &mut Spin, _: &mut XorShiftRng, grad: &Gradient<N>) {
 }
 
 
-fn double_tick<N: Len>(spin: &mut Spin, _: &mut XorShiftRng, grad: &Gradient<N>) {
+fn double_tick(spin: &mut Spin, _: &mut XorShiftRng, grad: &GradientSlice) {
     for color in grad.take(400) {
         spin.leds[0] = color;
         spin.leds[NLEDS-1] = color;
@@ -106,7 +105,7 @@ fn double_tick<N: Len>(spin: &mut Spin, _: &mut XorShiftRng, grad: &Gradient<N>)
 }
 
 
-fn rand_in_range<N: Len>(spin: &mut Spin, rng: &mut XorShiftRng, grad: &Gradient<N>, low: usize, high: usize) {
+fn rand_in_range(spin: &mut Spin, rng: &mut XorShiftRng, grad: &GradientSlice, low: usize, high: usize) {
     let i: usize = if low >= high {
         low
     } else {
@@ -128,7 +127,7 @@ fn rand_in_range<N: Len>(spin: &mut Spin, rng: &mut XorShiftRng, grad: &Gradient
     spin.update();
 }
 
-fn rand_vary<N: Len>(mut spin: &mut Spin, mut rng: &mut XorShiftRng, grad: &Gradient<N>) {
+fn rand_vary(mut spin: &mut Spin, mut rng: &mut XorShiftRng, grad: &GradientSlice) {
     let n_iters: u8 = 100;
 
     for _ in 0..4 {

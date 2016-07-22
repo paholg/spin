@@ -36,7 +36,6 @@ use generic_array::{GenericArray, ArrayLength};
 use typenum::NonZero;
 
 pub trait Len: Clone + NonZero + ArrayLength<(f32, Rgb)> + ArrayLength<Rgb> {}
-
 impl<T> Len for T where T: Clone + NonZero + ArrayLength<(f32, Rgb)> + ArrayLength<Rgb> {}
 
 /// A linear interpolation between colors.
@@ -48,6 +47,27 @@ impl<T> Len for T where T: Clone + NonZero + ArrayLength<(f32, Rgb)> + ArrayLeng
 #[derive(Clone, Debug)]
 pub struct Gradient<N: Len> {
     data: GenericArray<(f32, Rgb), N>,
+}
+
+#[derive(Debug)]
+pub struct GradientSlice {
+    data: [(f32, Rgb)],
+}
+
+// impl GradientBorrowed {
+//     pub fn new<'a, N: Len>(grad: Gradient<N>) -> &'a GradientBorrowed {
+//         &GradientBorrowed { data: *grad.data }
+//     }
+// }
+
+use std::ops::Deref;
+impl<N: Len> Deref for Gradient<N> {
+    type Target = GradientSlice;
+
+    fn deref(&self) -> &Self::Target {
+        let slice: &[(f32, Rgb)] = &self.data;
+        unsafe { ::std::mem::transmute(slice) }
+    }
 }
 
 impl<N> Gradient<N> where N: Len {
@@ -69,7 +89,9 @@ impl<N> Gradient<N> where N: Len {
         // fixme: ensure colors is sorted
         Gradient { data: colors }
     }
+}
 
+impl GradientSlice {
     /// Get a color from the gradient. The color of the closest control point will be returned if
     /// `i` is outside the domain.
     pub fn get(&self, i: f32) -> Rgb {
@@ -111,7 +133,7 @@ impl<N> Gradient<N> where N: Len {
     }
 
     /// Take `n` evenly spaced colors from the gradient, as an iterator.
-    pub fn take(&self, n: usize) -> Take<N> {
+    pub fn take(&self, n: usize) -> Take {
         let (min, max) = self.domain();
 
         Take {
@@ -125,14 +147,6 @@ impl<N> Gradient<N> where N: Len {
         }
     }
 
-    // /// Slice the gradient to limit its domain.
-    // pub fn slice<R: Into<Range<f32>>>(&self, range: R) -> Slice {
-    //     Slice {
-    //         gradient: self,
-    //         range: range.into(),
-    //     }
-    // }
-
     /// Get the limits of this gradient's domain.
     pub fn domain(&self) -> (f32, f32) {
         let len = self.data.len();
@@ -141,8 +155,8 @@ impl<N> Gradient<N> where N: Len {
 }
 
 #[derive(Clone, Debug)]
-pub struct Take<'a, N> where N: 'a + Len {
-    grad: &'a Gradient<N>,
+pub struct Take<'a> {
+    grad: &'a GradientSlice,
 
     num: usize,
     count: usize,
@@ -151,7 +165,7 @@ pub struct Take<'a, N> where N: 'a + Len {
     step: f32,
 }
 
-impl<'a, N> Iterator for Take<'a, N> where N: 'a + Len {
+impl<'a> Iterator for Take<'a> {
     type Item = Rgb;
 
     fn next(&mut self) -> Option<Rgb> {
@@ -164,162 +178,3 @@ impl<'a, N> Iterator for Take<'a, N> where N: 'a + Len {
         }
     }
 }
-
-// // use core::num::Float;
-// ///A domain range for gradient slices.
-// #[derive(Clone, Debug, PartialEq)]
-// pub struct Range<T: Float> {
-//     from: Option<T>,
-//     to: Option<T>,
-// }
-
-// impl<T: Float> Range<T> {
-//     fn clamp(&self, mut x: T) -> T {
-//         x = self.from.unwrap_or(x).max(x);
-//         self.to.unwrap_or(x).min(x)
-//     }
-
-//     fn constrain(&self, other: &Range<T>) -> Range<T> {
-//         if let (Some(f), Some(t)) = (other.from, self.to) {
-//             if f >= t {
-//                 return Range {
-//                     from: self.to,
-//                     to: self.to,
-//                 };
-//             }
-//         }
-
-
-//         if let (Some(t), Some(f)) = (other.to, self.from) {
-//             if t <= f {
-//                 return Range {
-//                     from: self.from,
-//                     to: self.from,
-//                 };
-//             }
-//         }
-
-//         Range {
-//             from: match (self.from, other.from) {
-//                 (Some(s), Some(o)) => Some(s.max(o)),
-//                 (Some(s), None) => Some(s),
-//                 (None, Some(o)) => Some(o),
-//                 (None, None) => None,
-//             },
-//             to: match (self.to, other.to) {
-//                 (Some(s), Some(o)) => Some(s.min(o)),
-//                 (Some(s), None) => Some(s),
-//                 (None, Some(o)) => Some(o),
-//                 (None, None) => None,
-//             },
-//         }
-//     }
-// }
-
-// impl<T: Float> From<::std::ops::Range<T>> for Range<T> {
-//     fn from(range: ::std::ops::Range<T>) -> Range<T> {
-//         Range {
-//             from: Some(range.start),
-//             to: Some(range.end),
-//         }
-//     }
-// }
-
-// impl<T: Float> From<::std::ops::RangeFrom<T>> for Range<T> {
-//     fn from(range: ::std::ops::RangeFrom<T>) -> Range<T> {
-//         Range {
-//             from: Some(range.start),
-//             to: None,
-//         }
-//     }
-// }
-
-// impl<T: Float> From<::std::ops::RangeTo<T>> for Range<T> {
-//     fn from(range: ::std::ops::RangeTo<T>) -> Range<T> {
-//         Range {
-//             from: None,
-//             to: Some(range.end),
-//         }
-//     }
-// }
-
-// impl<T: Float> From<::std::ops::RangeFull> for Range<T> {
-//     fn from(_range: ::std::ops::RangeFull) -> Range<T> {
-//         Range {
-//             from: None,
-//             to: None,
-//         }
-//     }
-// }
-
-
-// /// A slice of a Gradient that limits its domain.
-// #[derive(Clone, Debug)]
-// pub struct Slice<'a> {
-//     gradient: &'a Gradient,
-//     range: Range<f32>,
-// }
-
-// impl<'a> Slice<'a> {
-//     /// Get a color from the gradient slice. The color of the closest domain limit will be returned
-//     /// if `i` is outside the domain.
-//     pub fn get(&self, i: f32) -> Rgb {
-//         self.gradient.get(self.range.clamp(i))
-//     }
-
-    // ///Take `n` evenly spaced colors from the gradient slice, as an iterator.
-    // pub fn take(&self, n: usize) -> Take<C> {
-    //     let (min, max) = self.domain();
-
-    //     Take {
-    //         gradient: MaybeSlice::Slice(self.clone()),
-    //         from: min,
-    //         diff: max - min,
-    //         len: n,
-    //         current: 0,
-    //     }
-    // }
-
-    // ///Slice this gradient slice to further limit its domain. Ranges outside
-    // ///the domain will be clamped to the nearest domain limit.
-    // pub fn slice<R: Into<Range<C::Scalar>>>(&self, range: R) -> Slice<C> {
-    //     Slice {
-    //         gradient: self.gradient,
-    //         range: self.range.constrain(&range.into())
-    //     }
-    // }
-
-    // ///Get the limits of this gradient slice's domain.
-    // pub fn domain(&self) -> (C::Scalar, C::Scalar) {
-    //     if let Range { from: Some(from), to: Some(to) } = self.range {
-    //         (from, to)
-    //     } else {
-    //         let (from, to) = self.gradient.domain();
-    //         (self.range.from.unwrap_or(from), self.range.to.unwrap_or(to))
-    //     }
-    // }
-// }
-
-// #[derive(Clone)]
-// enum MaybeSlice<'a> {
-//     NotSlice(&'a Gradient),
-//     Slice(Slice),
-// }
-
-// impl<'a, C: Mix + Clone> MaybeSlice<'a, C> {
-//     fn get(&self, i: C::Scalar) -> C {
-//         match *self {
-//             MaybeSlice::NotSlice(g) => g.get(i),
-//             MaybeSlice::Slice(ref s) => s.get(i),
-//         }
-//     }
-// }
-
-// #[derive(Clone, Debug)]
-// pub struct Take<'a> {
-//     gradient: MaybeSlice<'a, C>,
-//     from: f32,
-//     diff: f32,
-//     len: usize,
-//     current: usize,
-// }
