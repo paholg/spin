@@ -49,7 +49,7 @@ fn filled(spin: &mut Spin, _: &mut XorShiftRng, grad: &GradientSlice) {
         let index = i % NLEDS;
         spin.leds[index] = color;
 
-        if index == 0 {
+        if index == NLEDS - 1 {
             spin.update();
             spin.sleep_ms(2);
         }
