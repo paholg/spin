@@ -3,9 +3,8 @@ extern crate spin;
 extern crate generic_array;
 extern crate typenum;
 
-use spin::{Spin, NLEDS, LedMatrixSlice};
+use spin::{Spin, LedMatrixSlice};
 use spin::color::Rgb;
-use spin::color::colors::*;
 
 fn main() {
     let mut spin = Spin::new();
@@ -14,7 +13,7 @@ fn main() {
     let picture = &LedMatrixSlice::with_angles(data);
     loop {
         let phi = spin.phi();
-        spin.leds = picture.get(phi);
+        spin.leds = picture[phi];
         spin.update();
         spin.sleep_us(100);
     }

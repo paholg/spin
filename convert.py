@@ -6,7 +6,7 @@ import scipy
 import scipy.ndimage
 
 nleds = 16
-nphi = 360/5
+nphi = 72
 
 dphi = 2*numpy.pi / nphi
 

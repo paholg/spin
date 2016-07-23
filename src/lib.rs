@@ -30,6 +30,7 @@ pub use spin::{Spin, rng};
 
 pub mod color;
 pub mod text;
+pub mod convert_image;
 
 pub const NLEDS: usize = 16;
 
@@ -124,6 +125,23 @@ impl LedMatrixSlice {
             }
             res
         }
+    }
+}
+
+impl ::std::ops::Index<f32> for LedMatrixSlice {
+    type Output = [Rgb; NLEDS];
+
+    /// If `phi` is not one of the angles that `Self` stores, will return the led strip
+    /// corresponding to the next lower one
+    fn index(&self, phi: f32) -> &Self::Output {
+        assert!(phi >= 0.0 && phi < 2.0 * PI);
+        let len = self.data.len();
+        for i in 0..len {
+            if phi <= self.data[i].0 {
+                return &self.data[i].1;
+            }
+        }
+        &self.data[len-1].1
     }
 }
 
