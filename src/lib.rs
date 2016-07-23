@@ -71,6 +71,11 @@ pub struct LedMatrixSlice {
 }
 
 impl LedMatrixSlice {
+    pub fn with_angles(led_strips: &[(f32, [Rgb; NLEDS])]) ->  &LedMatrixSlice {
+        // fixme: ensure led_strips is sorted, and that angles are in [0, 2*PI)
+        unsafe { ::std::mem::transmute(led_strips) }
+    }
+
     /// Get an LED strip from the matrix. `i` must be in [0.0, 2.0*PI).
     pub fn get(&self, i: f32) -> [Rgb; NLEDS] {
         assert!(i >= 0.0 && i < 2.0 * PI);
