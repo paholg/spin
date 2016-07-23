@@ -13,6 +13,18 @@ impl Spin {
     pub fn update(&mut self) {
     }
 
+    pub fn phi(&self) -> f32 {
+        0.0
+    }
+
+    pub fn omega(&self) -> f32 {
+        0.0
+    }
+
+    pub fn alpha(&self) -> f32 {
+        0.0
+    }
+
     pub fn sleep_us(&mut self, us: u32) {
         let _ = us;
     }

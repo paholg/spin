@@ -119,6 +119,7 @@ impl Spin {
         self.phi += dphi;
 
         while self.phi >= 2.0*PI { self.phi -= 2.0*PI; }
+        while self.phi < 0.0 { self.phi += 2.0*PI; }
 
         // if we've moved too much, we need to fill with some extra trapezoids
         // (2 triangles = 1 trapezoid)
@@ -195,6 +196,18 @@ impl Spin {
         }
         ::std::thread::sleep(Duration::new(0, 10_000));
         self.update_time = now;
+    }
+
+    pub fn phi(&self) -> f32 {
+        self.phi
+    }
+
+    pub fn omega(&self) -> f32 {
+        self.omega
+    }
+
+    pub fn alpha(&self) -> f32 {
+        self.alpha
     }
 
     pub fn sleep_us(&mut self, us: u32) {

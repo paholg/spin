@@ -1,27 +1,12 @@
 extern crate spin;
-extern crate rand;
 #[macro_use]
 extern crate generic_array;
 extern crate typenum;
 
 use spin::{Spin, NLEDS};
 use spin::color::{Rgb, Gradient, GradientSlice};
-use rand::{XorShiftRng, Rng};
-
-const WHITE:   Rgb = Rgb { r: 255, g: 255, b: 255 };
-const BLACK:   Rgb = Rgb { r:   0, g:   0, b:   0 };
-const RED:     Rgb = Rgb { r: 255, g:   0, b:   0 };
-const GREEN:   Rgb = Rgb { r:   0, g: 255, b:   0 };
-const BLUE:    Rgb = Rgb { r:   0, g:   0, b: 255 };
-const YELLOW:  Rgb = Rgb { r: 255, g: 255, b:   0 };
-const CYAN:    Rgb = Rgb { r:   0, g: 255, b: 255 };
-const MAGENTA: Rgb = Rgb { r: 255, g:   0, b: 255 };
-const ORANGE:  Rgb = Rgb { r: 255, g: 128, b:   0 };
-const PURPLE:  Rgb = Rgb { r: 128, g:   0, b: 128 };
-const DKGREEN: Rgb = Rgb { r:   0, g: 128, b:   0 };
-const FOREST:  Rgb = Rgb { r:  34, g: 139, b:  34 };
-const NAVY:    Rgb = Rgb { r:   0, g:   0, b: 128 };
-const TEAL:    Rgb = Rgb { r:   0, g: 128, b: 128 };
+use spin::rand::{XorShiftRng, Rng};
+use spin::color::colors::*;
 
 fn main() {
     let mut spinner = Spin::new();

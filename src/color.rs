@@ -32,12 +32,8 @@ impl Rgb {
 }
 
 
-use generic_array::{GenericArray, ArrayLength};
-use typenum::NonZero;
-
-pub trait Len: Clone + NonZero + ArrayLength<(f32, Rgb)> + ArrayLength<Rgb> {}
-impl<T> Len for T where T: Clone + NonZero + ArrayLength<(f32, Rgb)> + ArrayLength<Rgb> {}
-
+use generic_array::{GenericArray};
+use Len;
 /// A linear interpolation between colors.
 ///
 /// It's used to smoothly transition between a series of colors, that can be either evenly spaced
@@ -47,16 +43,6 @@ impl<T> Len for T where T: Clone + NonZero + ArrayLength<(f32, Rgb)> + ArrayLeng
 #[derive(Clone, Debug)]
 pub struct Gradient<N: Len> {
     data: GenericArray<(f32, Rgb), N>,
-}
-
-use std::ops::Deref;
-impl<N: Len> Deref for Gradient<N> {
-    type Target = GradientSlice;
-
-    fn deref(&self) -> &Self::Target {
-        let slice: &[(f32, Rgb)] = &self.data;
-        unsafe { ::std::mem::transmute(slice) }
-    }
 }
 
 impl<N> Gradient<N> where N: Len {
@@ -171,4 +157,33 @@ impl<'a> Iterator for Take<'a> {
             None
         }
     }
+}
+
+use std::ops::Deref;
+impl<N: Len> Deref for Gradient<N> {
+    type Target = GradientSlice;
+
+    fn deref(&self) -> &Self::Target {
+        let slice: &[(f32, Rgb)] = &self.data;
+        unsafe { ::std::mem::transmute(slice) }
+    }
+}
+
+
+pub mod colors {
+    use color::Rgb;
+    pub const WHITE:   Rgb = Rgb { r: 255, g: 255, b: 255 };
+    pub const BLACK:   Rgb = Rgb { r:   0, g:   0, b:   0 };
+    pub const RED:     Rgb = Rgb { r: 255, g:   0, b:   0 };
+    pub const GREEN:   Rgb = Rgb { r:   0, g: 255, b:   0 };
+    pub const BLUE:    Rgb = Rgb { r:   0, g:   0, b: 255 };
+    pub const YELLOW:  Rgb = Rgb { r: 255, g: 255, b:   0 };
+    pub const CYAN:    Rgb = Rgb { r:   0, g: 255, b: 255 };
+    pub const MAGENTA: Rgb = Rgb { r: 255, g:   0, b: 255 };
+    pub const ORANGE:  Rgb = Rgb { r: 255, g: 128, b:   0 };
+    pub const PURPLE:  Rgb = Rgb { r: 128, g:   0, b: 128 };
+    pub const DKGREEN: Rgb = Rgb { r:   0, g: 128, b:   0 };
+    pub const FOREST:  Rgb = Rgb { r:  34, g: 139, b:  34 };
+    pub const NAVY:    Rgb = Rgb { r:   0, g:   0, b: 128 };
+    pub const TEAL:    Rgb = Rgb { r:   0, g: 128, b: 128 };
 }
