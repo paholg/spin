@@ -4,17 +4,21 @@
   authors = ["Paho Lurie-Gregg <paho@paholg.com>"]
 
 [features]
+  default = ["sim", "std"]
   sim = ["glium"]
-  default = ["sim"]
+  std = ["image"]
+  spin = []
 
 # General dependencies
 [dependencies]
   typenum = "*"
   generic-array = "*"
+  dimensioned = "0.5"
   # rand = { git = "https://github.com/jethrogb/rand", branch = "core", default-features = false }
   rand = "*"
   # Sim dependencies
   glium = { version = "*", optional = true }
+  image = { version = "*", optional = true }
 
 
   # Maybe? dependencies

@@ -4,17 +4,8 @@ use std::{mem, ptr};
 
 use glium;
 
-use NLEDS;
+use {NLEDS, R0, LED_SIZE, LED_SPACE};
 use color::Rgb;
-
-// Eventually, we will use dimensioned for real units
-#[allow(non_upper_case_globals)]
-const mm: f32 = 0.001;
-
-// distance to first led
-const R0: f32 = 0.2 * mm;
-const LED_SIZE: f32 = 2.8 * mm;
-const SPACE: f32 = 0.2 * mm;
 
 
 const ALPHA0: f32 = 2.0 * PI * 10.0; // rad/s^2
@@ -131,7 +122,7 @@ impl Spin {
             .zip(self.leds.iter())
             .enumerate()
         {
-            let v1 = R0 + (i as f32)*(LED_SIZE + SPACE);
+            let v1 = R0 + (i as f32)*(LED_SIZE + LED_SPACE);
             let v2 = v1 + LED_SIZE;
 
             for _ in 0..2*ntraps {
@@ -169,7 +160,7 @@ impl Spin {
                     (1.0, width as f32 / height as f32)
                 };
 
-                let rad = R0 + LED_SIZE*NLEDS as f32 + SPACE*(NLEDS - 1) as f32;
+                let rad = R0 + LED_SIZE*NLEDS as f32 + LED_SPACE*(NLEDS - 1) as f32;
                 let scale = 1.0;
                 let f = scale / rad;
 

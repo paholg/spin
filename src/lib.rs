@@ -1,14 +1,18 @@
 //! This is a module comment!
 
+#![feature(const_fn)]
+#![feature(question_mark)]
 
-#![cfg_attr(not(feature = "sim"), no_std)]
-#![cfg_attr(not(feature = "sim"), feature(core_float))]
+#![cfg_attr(not(feature = "std"), no_std)]
+// #![cfg_attr(not(feature = "std"), feature(core_float))]
 
 extern crate typenum;
 extern crate generic_array;
+#[macro_use]
+extern crate dimensioned as dim;
 pub extern crate rand;
 
-#[cfg(not(feature = "sim"))]
+#[cfg(not(feature = "std"))]
 #[allow(private_in_public)]
 pub use core as std;
 
@@ -23,16 +27,42 @@ pub mod sim;
 #[cfg(feature = "sim")]
 pub use sim as spin;
 
-#[cfg(not(feature = "sim"))]
+#[cfg(all(feature = "spin", not(feature = "sim")))]
 pub mod spin;
 
+#[cfg(any(feature = "sim", feature = "spin"))]
 pub use spin::{Spin, rng};
 
 pub mod color;
 pub mod text;
+
+#[cfg(feature = "std")]
 pub mod convert_image;
 
 pub const NLEDS: usize = 16;
+
+// TODO: Update Dimensioned, then work in all this shit
+
+// pub mod milli {
+//     make_units_adv! {
+//         Milli, Unitless, one, f32, 1.0;
+//         base {
+//             P1, Millimeter, mm, mm;
+//             P1, Millisecond, ms, ms;
+//         }
+//         derived {}
+//     }
+// }
+// pub use milli::{Millimeter, Millisecond, mm, ms};
+
+// use dim::Dim;
+// const R0: Dim<Millimeter, f32> = Dim::new(0.2);
+// const LED_SIZE: Dim<Millimeter, f32> = Dim::new(2.8);
+// const LED_SPACE: Dim<Millimeter, f32> = Dim::new(0.2);
+
+const R0: f32 = 0.2;
+const LED_SIZE: f32 = 2.8;
+const LED_SPACE: f32 = 0.2;
 
 use typenum::NonZero;
 use generic_array::ArrayLength;
