@@ -13,9 +13,15 @@ dphi = 2*numpy.pi / nphi
 def main():
     im = scipy.ndimage.imread(sys.argv[1], mode='RGB')
 
-    print(im.shape)
     width = im.shape[0]
+    if width % 2 == 1:
+        im = im[:-1, :, :]
+        width = im.shape[0]
+
     height = im.shape[1]
+    if height % 2 == 1:
+        im = im[:, :-1, :]
+        height = im.shape[1]
 
     cx = int(width/2)
     cy = int(height/2)
