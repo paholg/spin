@@ -41,7 +41,7 @@ def main():
             result[phi_i, r_i, 2] = im2[x, y, 2]
 
 
-    f = open('img.dat', 'w')
+    f = open('examples/picture.dat', 'w')
     f.write("""&[
 """)
     for (i, strip) in enumerate(result):

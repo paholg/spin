@@ -194,7 +194,9 @@ impl Spin {
             }
             self.last_draw = now;
         }
-        ::std::thread::sleep(Duration::new(0, 10_000));
+        // this time should be adjust so as to account for the speed difference between a desktop
+        // cpu and the spinner
+        ::std::thread::sleep(Duration::from_millis(1));
         self.update_time = now;
     }
 
