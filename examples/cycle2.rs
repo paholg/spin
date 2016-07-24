@@ -96,6 +96,9 @@ fn in_and_out(spin: &mut Spin, rng: &mut XorShiftRng, grad: &GradientSlice) {
 
     let (min, max) = grad.domain();
 
+    spin.leds = [BLACK; NLEDS];
+    spin.update();
+
     for _ in 0..4 {
         // fill in to out
         spin.sleep_us(sleep_time * niters as u32);

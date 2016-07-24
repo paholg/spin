@@ -4,10 +4,9 @@
   authors = ["Paho Lurie-Gregg <paho@paholg.com>"]
 
 [features]
-  default = ["sim", "std"]
+  default = ["sim"]
   sim = ["glium"]
-  std = ["image"]
-  spin = []
+  # spin = []
 
 # General dependencies
 [dependencies]
@@ -18,7 +17,6 @@
   rand = "*"
   # Sim dependencies
   glium = { version = "*", optional = true }
-  image = { version = "*", optional = true }
 
 
   # Maybe? dependencies

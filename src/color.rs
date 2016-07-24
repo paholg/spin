@@ -8,6 +8,8 @@
 
 // use typenum::Unsigned;
 
+extern crate core;
+
 #[derive(Copy, Clone, Default, PartialEq, Eq, Debug)]
 pub struct Rgb {
     pub r: u8,
@@ -159,13 +161,13 @@ impl<'a> Iterator for Take<'a> {
     }
 }
 
-use std::ops::Deref;
+use core::ops::Deref;
 impl<N: Len> Deref for Gradient<N> {
     type Target = GradientSlice;
 
     fn deref(&self) -> &Self::Target {
         let slice: &[(f32, Rgb)] = &self.data;
-        unsafe { ::std::mem::transmute(slice) }
+        unsafe { ::core::mem::transmute(slice) }
     }
 }
 

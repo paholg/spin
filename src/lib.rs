@@ -3,43 +3,51 @@
 #![feature(const_fn)]
 #![feature(question_mark)]
 
-#![cfg_attr(not(feature = "std"), no_std)]
+// spin stuff:
+#![cfg_attr(not(feature = "sim"), no_std)]
 // #![cfg_attr(not(feature = "std"), feature(core_float))]
 
-extern crate typenum;
-extern crate generic_array;
-#[macro_use]
-extern crate dimensioned as dim;
-pub extern crate rand;
+#[cfg(not(feature = "sim"))]
+pub mod spin;
 
-#[cfg(not(feature = "std"))]
-#[allow(private_in_public)]
-pub use core as std;
+// sim stuff:
+#[cfg(feature = "sim")]
+extern crate core;
 
 #[macro_use]
 #[cfg(feature = "sim")]
 extern crate glium;
-
-// extern crate zinc;
 
 #[cfg(feature = "sim")]
 pub mod sim;
 #[cfg(feature = "sim")]
 pub use sim as spin;
 
-#[cfg(all(feature = "spin", not(feature = "sim")))]
-pub mod spin;
+// general stuff:
+extern crate typenum;
+pub extern crate generic_array;
+#[macro_use]
+pub extern crate dimensioned as dim;
+pub extern crate rand;
 
-#[cfg(any(feature = "sim", feature = "spin"))]
+
+
 pub use spin::{Spin, rng};
 
 pub mod color;
 pub mod text;
 
-#[cfg(feature = "std")]
-pub mod convert_image;
-
+/// The number of LEDs.
 pub const NLEDS: usize = 16;
+
+/// The distance from the center to the first LED.
+pub const R0: f32 = 0.2;
+
+/// The diameter of an LED.
+pub const LED_SIZE: f32 = 2.8;
+
+/// The distance between LEDs.
+pub const LED_SPACE: f32 = 0.2;
 
 // TODO: Update Dimensioned, then work in all this shit
 
@@ -60,14 +68,11 @@ pub const NLEDS: usize = 16;
 // const LED_SIZE: Dim<Millimeter, f32> = Dim::new(2.8);
 // const LED_SPACE: Dim<Millimeter, f32> = Dim::new(0.2);
 
-const R0: f32 = 0.2;
-const LED_SIZE: f32 = 2.8;
-const LED_SPACE: f32 = 0.2;
-
 use typenum::NonZero;
 use generic_array::ArrayLength;
 use color::Rgb;
 
+/// A convenience trait to make ArrayLength easier to use with the datastructures in this crate.
 pub trait Len: Clone + NonZero + ArrayLength<(f32, Rgb)> + ArrayLength<Rgb>
     + ArrayLength<(f32, [Rgb; NLEDS])> + ArrayLength<[Rgb; NLEDS]> {}
 impl<T> Len for T where T: Clone + NonZero + ArrayLength<(f32, Rgb)> + ArrayLength<Rgb>
@@ -79,7 +84,7 @@ pub struct LedMatrix<N: Len> {
     data: GenericArray<(f32, [Rgb; NLEDS]), N>,
 }
 
-use std::f32::consts::PI;
+use core::f32::consts::PI;
 impl<N: Len> LedMatrix<N> {
     pub fn new(led_strips: GenericArray<[Rgb; NLEDS], N>) ->  LedMatrix<N> {
         let mut points = led_strips.map(|&l| (0.0, l));
@@ -104,7 +109,7 @@ pub struct LedMatrixSlice {
 impl LedMatrixSlice {
     pub fn with_angles(led_strips: &[(f32, [Rgb; NLEDS])]) ->  &LedMatrixSlice {
         // fixme: ensure led_strips is sorted, and that angles are in [0, 2*PI)
-        unsafe { ::std::mem::transmute(led_strips) }
+        unsafe { core::mem::transmute(led_strips) }
     }
 
     /// Get an LED strip from the matrix. `i` must be in [0.0, 2.0*PI).
@@ -146,19 +151,19 @@ impl LedMatrixSlice {
 
         // fixme: switch to zip once GenericArray has it
         unsafe {
-            let mut res: [Rgb; NLEDS] = ::std::mem::uninitialized();
+            let mut res: [Rgb; NLEDS] = ::core::mem::uninitialized();
             let colors = min_strip.iter()
                 .zip(max_strip.iter())
                 .map(|(min_color, max_color)| min_color.mix(max_color, factor));
             for (r, color) in res.iter_mut().zip(colors) {
-                ::std::ptr::write(r, color);
+                ::core::ptr::write(r, color);
             }
             res
         }
     }
 }
 
-impl ::std::ops::Index<f32> for LedMatrixSlice {
+impl ::core::ops::Index<f32> for LedMatrixSlice {
     type Output = [Rgb; NLEDS];
 
     /// If `phi` is not one of the angles that `Self` stores, will return the led strip
@@ -175,12 +180,11 @@ impl ::std::ops::Index<f32> for LedMatrixSlice {
     }
 }
 
-use std::ops::Deref;
+use core::ops::Deref;
 impl<N: Len> Deref for LedMatrix<N> {
     type Target = LedMatrixSlice;
 
     fn deref(&self) -> &Self::Target {
-        let slice: &[(f32, [Rgb; NLEDS])] = &self.data;
-        unsafe { ::std::mem::transmute(slice) }
+        unsafe { ::core::mem::transmute(&*self.data) }
     }
 }

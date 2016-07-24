@@ -1,7 +1,10 @@
+#![feature(question_mark)]
+
+extern crate spin;
 extern crate image;
 
 use std::f32::consts::PI;
-use {NLEDS, R0, LED_SIZE, LED_SPACE};
+use spin::{NLEDS, R0, LED_SIZE, LED_SPACE};
 
 
 use std::path::Path;
@@ -22,7 +25,7 @@ pub fn convert_image(path: &Path, nslices: usize) -> Result<String, Box<Error>> 
     let phi0 = 0.0;
 
 
-    use color::Rgb;
+    use spin::color::Rgb;
     let mut polar_img: Vec<(f32, [Rgb; NLEDS])> = Vec::with_capacity(nslices);
     // Here, we want to construct a pineapple chunk that has corners (r - dr/2, phi - dphi/2) and
     // (r + dr/2, phi + dphi/2). We then want to find all pixels it overlaps with, and how much
@@ -63,13 +66,12 @@ pub fn convert_image(path: &Path, nslices: usize) -> Result<String, Box<Error>> 
 }
 
 
-// #[test]
-// fn test_conversion() {
-//     let text = convert_image(Path::new("imgs/test_img.png"), 72).unwrap();
-//     let dest = Path::new("examples/picture.dat");
-//     use std::fs::File;
+fn main() {
+    let text = convert_image(Path::new("imgs/test_img.png"), 72).unwrap();
+    let dest = Path::new("examples/picture.dat");
+    use std::fs::File;
 
-//     let mut f = File::create(dest).unwrap();
-//     use std::io::Write;
-//     f.write_all(text.as_bytes()).unwrap();
-// }
+    let mut f = File::create(dest).unwrap();
+    use std::io::Write;
+    f.write_all(text.as_bytes()).unwrap();
+}
