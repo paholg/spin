@@ -62,7 +62,7 @@ impl<N> Gradient<N> where N: Len {
 
     /// Create a gradient of colors with custom spacing and domain. There must be at least one
     /// color and they are expected to be ordered by their position value.
-    pub fn with_domain(colors: GenericArray<(f32, Rgb), N>) -> Gradient<N> {
+    pub const fn with_domain(colors: GenericArray<(f32, Rgb), N>) -> Gradient<N> {
         // fixme: ensure colors is sorted
         Gradient { data: colors }
     }
@@ -188,4 +188,19 @@ pub mod colors {
     pub const FOREST:  Rgb = Rgb { r:  34, g: 139, b:  34 };
     pub const NAVY:    Rgb = Rgb { r:   0, g:   0, b: 128 };
     pub const TEAL:    Rgb = Rgb { r:   0, g: 128, b: 128 };
+
+    // use core::f32::consts::PI;
+    // use typenum::U6;
+    // use color::Gradient;
+    // pub const RAINBOW: Gradient<U6> = Gradient::with_domain(arr![
+    //     (f32, Rgb);
+    //     (0.0, RED),
+    //     (1.0 * 2.0*PI/6.0, YELLOW),
+    //     (2.0 * 2.0*PI/6.0, GREEN),
+    //     (3.0 * 2.0*PI/6.0, CYAN),
+    //     (4.0 * 2.0*PI/6.0, BLUE),
+    //     (5.0 * 2.0*PI/6.0, MAGENTA)
+    // ]);
+    // pub const RAINBOW: &'static GradientSlice = &[1, 2, 3];
 }
+

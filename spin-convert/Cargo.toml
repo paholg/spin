@@ -1,8 +1,0 @@
-[package]
-name = "spin-convert"
-version = "0.1.0"
-authors = ["Paho Lurie-Gregg <paho@paholg.com>"]
-
-[dependencies]
-  image = "*"
-  spin = { path = "../" }

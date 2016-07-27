@@ -6,50 +6,20 @@
 [features]
   default = ["sim"]
   sim = ["glium"]
-  # spin = []
+  spin = ["zinc/mcu_stm32f4", "macro_zinc", "rust-libcore"]
 
-# General dependencies
 [dependencies]
   typenum = "*"
   generic-array = "*"
-  dimensioned = "0.5"
-  # rand = { git = "https://github.com/jethrogb/rand", branch = "core", default-features = false }
+  # dimensioned = "0.5"
   rand = "*"
-  # Sim dependencies
-  glium = { version = "*", optional = true }
-
-
-  # Maybe? dependencies
+  # rand = { git = "https://github.com/jethrogb/rand", branch = "core", default-features = false }
   # approx = { git = "https://github.com/paholg/approx", branch = "no_std" }
 
+  # Sim
+  glium = { version = "*", optional = true }
 
-# For microcontroller:
-
-# [features]
-#    default = ["mcu_lpc11xx"]
-#    mcu_lpc11xx = ["zinc/mcu_lpc11xx"]
-# [dependencies]
-#    rust-libcore = "*"
-
-# [dependencies.zinc]
-#   git = "https://github.com/hackndev/zinc"
-#   branch = "master"
-#   # features = ["mcu_lpc11xx"]
-
-# [dependencies.macro_platformtree]
-#   git = "https://github.com/hackndev/zinc"
-#   branch = "master"
-#   path = "macro_platformtree"
-
-# [dependencies.ioreg]
-#   git = "https://github.com/hackndev/zinc"
-#   branch = "master"
-#   path = "ioreg"
-
-# [dependencies.platformtree]
-#   git = "https://github.com/hackndev/zinc"
-#   branch = "master"
-#   path = "platformtree"
-
-# [dependencies.macro_zinc]
-#   git = "https://github.com/hackndev/zinc"
+  # Microcontroller
+  zinc = { git = "https://github.com/hackndev/zinc", optional = true }
+  macro_zinc = { git = "https://github.com/hackndev/zinc", path = "macro_zinc", optional = true }
+  rust-libcore = { version = "*", optional = true }

@@ -234,7 +234,7 @@ impl Spin {
 }
 
 
-const VERTEX_SHADER: &'static str = r#"
+pub const VERTEX_SHADER: &'static str = r#"
 #version 140
 
 in vec2 position;
@@ -250,7 +250,7 @@ void main() {
 }
 "#;
 
-const FRAGMENT_SHADER: &'static str = r#"
+pub const FRAGMENT_SHADER: &'static str = r#"
 #version 140
 
 flat in vec3 v_color;

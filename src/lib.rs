@@ -4,18 +4,23 @@
 #![feature(question_mark)]
 
 // spin stuff:
-#![cfg_attr(not(feature = "sim"), no_std)]
-// #![cfg_attr(not(feature = "std"), feature(core_float))]
+#![cfg_attr(feature = "spin", no_std)]
+#![cfg_attr(feature = "spin", feature(plugin))]
+#![cfg_attr(feature = "spin", plugin(macro_zinc))]
+// #![cfg_attr(feature = "spin", feature(core_float))]
 
-#[cfg(not(feature = "sim"))]
+#[cfg(feature = "spin")]
+extern crate zinc;
+
+#[cfg(feature = "spin")]
 pub mod spin;
 
 // sim stuff:
 #[cfg(feature = "sim")]
 extern crate core;
 
-#[macro_use]
 #[cfg(feature = "sim")]
+#[macro_use]
 extern crate glium;
 
 #[cfg(feature = "sim")]
@@ -25,13 +30,10 @@ pub use sim as spin;
 
 // general stuff:
 extern crate typenum;
-pub extern crate generic_array;
 #[macro_use]
-pub extern crate dimensioned as dim;
+pub extern crate generic_array;
+// pub extern crate dimensioned as dim;
 pub extern crate rand;
-
-
-
 pub use spin::{Spin, rng};
 
 pub mod color;
